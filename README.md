@@ -114,4 +114,4 @@ GitHub 連携で `main` に push すると自動で公開されます。詳し�
 
 `public/data/shops.json` を更新したあとブラウザに古い内容が残るときは、再読み込みしてください（`_headers` で 5 分キャッシュにしています）。`public/assets/` を書き換えたときは、`public/index.html` の `?v=8` の数字を上げるとすぐ反映されます。
 
-公開中: https://coffee-map-nishimu.pages.dev/ 。再デプロイの手順は `deploy.md` にあります。
+公開中: https://roaster-map.pages.dev/ 。再デプロイの手順は `deploy.md` にあります。
