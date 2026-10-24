@@ -236,6 +236,7 @@
   }
 
   function update({ fit = false } = {}) {
+    if (fit && state.active) { map.closePopup(); setActive(null, false); }
     const list = filtered();
     const ids = new Set(list.map((s) => s.id));
     $("resultCount").textContent = list.length === shops.length
@@ -306,7 +307,7 @@
       if (isNarrow) document.querySelector(".map-wrap").scrollIntoView({ behavior: "smooth", block: "start" });
       if (fly === "instant") { map.setView([s.lat, s.lng], 10, { animate: false }); m.openPopup(); return; }
       map.flyTo([s.lat, s.lng], Math.max(map.getZoom(), 10), { duration: 0.8 });
-      map.once("moveend", () => m.openPopup());
+      map.once("moveend", () => { if (state.active === id) m.openPopup(); });
     }
   }
 
