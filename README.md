@@ -17,6 +17,7 @@ coffee-map/
 │   ├── assets/app.js      地図・一覧・絞り込みの処理
 │   ├── assets/favicon.svg
 │   ├── assets/masthead.jpg  ヘッダーの帯の写真
+│   ├── assets/og.jpg        SNS で共有したときの画像（1200×630）
 │   └── _headers           キャッシュ設定
 ├── README.md
 ├── UPDATE.md              メールから追記するときの手順
