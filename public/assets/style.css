@@ -39,7 +39,7 @@ h1{font-family:var(--serif);font-weight:700;font-size:clamp(28px,4.6vw,46px);lin
 
 /* map tone */
 .leaflet-container{font-family:var(--sans);background:#ece5da}
-.tiles-warm{filter:sepia(.18) saturate(.75) brightness(1.02) contrast(.96)}
+.tiles-warm{filter:sepia(.4) saturate(.45) brightness(1.04) contrast(.9)}
 .leaflet-control-attribution{background:rgba(255,250,243,.85)!important;font-size:10.5px;color:var(--ink-3)}
 .leaflet-control-zoom a{color:var(--ink)!important;background:var(--card)!important;border-color:var(--line)!important}
 
