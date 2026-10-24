@@ -76,7 +76,7 @@
       ["豆・セット", beans, "種"],
     ];
     $("stats").innerHTML = items.map(([k, v, u]) => `<div><dt>${k}</dt><dd>${v}<small>${u}</small></dd></div>`).join("") +
-      (latest ? `<div><dt>最近の注文</dt><dd>${esc(latest.name)}<small>${esc(fmtDate(latest.latest))}</small></dd></div>` : "");
+      (latest ? `<div class="latest"><dt>最近の注文</dt><dd>${esc(latest.name)}<small>${esc(fmtDate(latest.latest))}</small></dd></div>` : "");
   }
 
   function renderTicker() {
