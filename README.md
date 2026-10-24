@@ -26,7 +26,7 @@ coffee-map/
 
 外部から読み込むもの: Leaflet 1.9.4（unpkg）、Jost / Noto Sans JP（Google Fonts）、国土地理院の淡色地図タイル、Esri World Light Gray Canvas（日本が画面に入らないときだけ使う世界地図タイル）。
 
-ヘッダーの写真は Wikimedia Commons の [Roasted coffee beans.jpg](https://commons.wikimedia.org/wiki/File:Roasted_coffee_beans.jpg)（MarkSweep 撮影、パブリックドメイン）です。差し替えるときは `public/assets/masthead.jpg` を上書きし、`style.css` の `masthead.jpg?v=` の数字を上げます。
+ヘッダーの写真は棚に並べたドリッパーを撮ったものです。差し替えるときは `public/assets/masthead.jpg` を上書きし、`style.css` の `masthead.jpg?v=` の数字を上げます。
 
 ## ローカルで見る
 
