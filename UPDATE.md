@@ -114,10 +114,10 @@ Gmail の 2 アカウントを読むだけにします（返信や整理はし�
 
    ```sh
    for p in / /data/shops.json /assets/app.js /assets/style.css; do
-     curl -s -o /dev/null -w "%{http_code} $p\n" "https://coffee-map-nishimu.pages.dev$p"
+     curl -s -o /dev/null -w "%{http_code} $p\n" "https://roaster-map.pages.dev$p"
    done
-   curl -s "https://coffee-map-nishimu.pages.dev/data/shops.json?t=$(date +%s)" | cmp - public/data/shops.json && echo same
+   curl -s "https://roaster-map.pages.dev/data/shops.json?t=$(date +%s)" | cmp - public/data/shops.json && echo same
    ```
 
-5. https://coffee-map-nishimu.pages.dev/ を開き、軒数・購入回数と新しいピンを目で確かめます。
+5. https://roaster-map.pages.dev/ を開き、軒数・購入回数と新しいピンを目で確かめます。
 6. 上の「最終チェック日」を更新します。

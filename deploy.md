@@ -1,6 +1,6 @@
 # デプロイ
 
-- **公開URL:** https://coffee-map-nishimu.pages.dev/ （GitHub 連携に切り替え後のURLはここを更新する）
+- **公開URL:** https://roaster-map.pages.dev/ （Cloudflare Pages プロジェクト roaster-map、リポジトリ https://github.com/Sixeight/roaster-map）
 - **方式:** Cloudflare Pages の GitHub 連携。`main` に push すると Cloudflare が自動で公開する。
 - **ビルド設定:** フレームワークなし、ビルドコマンドなし、出力ディレクトリ `public`。
 
@@ -16,7 +16,7 @@
 3. 1〜2 分待ってから、本番に反映されたか確かめる。
 
    ```sh
-   curl -s "https://coffee-map-nishimu.pages.dev/data/shops.json?t=$(date +%s)" | cmp - public/data/shops.json && echo 最新
+   curl -s "https://roaster-map.pages.dev/data/shops.json?t=$(date +%s)" | cmp - public/data/shops.json && echo 最新
    ```
 
 `public/assets/` の CSS や JS を変えたときは、`public/index.html` の `?v=` の数字を上げてください。ブラウザのキャッシュ（1 日）を飛ばせます。`shops.json` のキャッシュは 5 分です（`public/_headers`）。
