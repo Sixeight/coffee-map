@@ -21,7 +21,8 @@
   const fmtDate = (d) => {
     if (!d) return "日付の記録なし";
     const [y, m, day] = d.split("-").map(Number);
-    return `${y}年${m}月${day ? day + "日" : ""}`;
+    const pad = (n) => String(n).padStart(2, "0");
+    return `${y}.${pad(m)}${day ? "." + pad(day) : ""}`;
   };
   const isShopUrl = (u) => /(\.stores\.jp|\.thebase\.in|\.base\.shop|\.theshop\.jp|\.square\.site|rakuten\.co\.jp|\/\/shop\.|\.shop\/)/.test(u || "");
   const latestDate = (s) => s.purchases.map((p) => p.date).filter(Boolean).sort().pop() || "";
@@ -74,7 +75,7 @@
       ["豆・セット", beans, "種"],
     ];
     $("stats").innerHTML = items.map(([k, v, u]) => `<div><dt>${k}</dt><dd>${v}<small>${u}</small></dd></div>`).join("") +
-      (latest ? `<div><dt>最近の注文</dt><dd style="font-size:17px;padding-top:6px">${esc(latest.name)}<small>${esc(fmtDate(latest.latest))}</small></dd></div>` : "");
+      (latest ? `<div><dt>最近の注文</dt><dd>${esc(latest.name)}<small>${esc(fmtDate(latest.latest))}</small></dd></div>` : "");
   }
 
   function initMap() {

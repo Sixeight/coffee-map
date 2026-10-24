@@ -22,7 +22,7 @@ coffee-map/
 └── deploy.md              公開の仕組み
 ```
 
-外部から読み込むもの: Leaflet 1.9.4（unpkg）、Noto Sans JP / Noto Serif JP（Google Fonts）、国土地理院の淡色地図タイル、Esri World Light Gray Canvas（日本が画面に入らないときだけ使う世界地図タイル）。
+外部から読み込むもの: Leaflet 1.9.4（unpkg）、Jost / Noto Sans JP（Google Fonts）、国土地理院の淡色地図タイル、Esri World Light Gray Canvas（日本が画面に入らないときだけ使う世界地図タイル）。
 
 ## ローカルで見る
 
