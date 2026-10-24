@@ -24,6 +24,8 @@ a:hover{color:var(--coffee);text-decoration-color:currentColor}
 .lang-sep{font:700 11px var(--latin);color:var(--ink-3);padding:0 1px}
 html[lang="en"] .masthead h1{font-family:var(--latin);letter-spacing:.02em;word-break:normal}
 html[lang="en"] .item{grid-template-columns:64px 1fr}
+html[lang="en"] .region .tiles{display:grid;grid-template-columns:repeat(2,1fr)}
+html[lang="en"] .tile{padding:3px 4px;text-align:center}
 html[lang="en"] .badge{width:64px;font:700 12px var(--latin)}
 
 /* masthead */
