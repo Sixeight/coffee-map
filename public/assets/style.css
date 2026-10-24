@@ -32,6 +32,8 @@ a:hover{color:var(--coffee);text-decoration-color:currentColor}
 .stats dd small{font:500 15px var(--latin);color:var(--ink-3);margin-left:3px}
 .stats div:last-child dd{font:900 17px/1.4 var(--sans);padding-top:6px;max-width:12em}
 .stats div:last-child dd small{display:block;font:500 13px var(--latin);margin:0}
+.stats div:last-child{position:relative}
+.stats div:last-child::after{content:"NEW!";position:absolute;top:-34px;right:-22px;width:50px;height:50px;display:grid;place-items:center;background:var(--coffee);color:#fff;font:800 11px var(--latin);transform:rotate(14deg);clip-path:polygon(50% 0,58% 13%,73% 5%,74% 21%,90% 18%,84% 33%,100% 38%,88% 50%,100% 62%,84% 67%,90% 82%,74% 79%,73% 95%,58% 87%,50% 100%,42% 87%,27% 95%,26% 79%,10% 82%,16% 67%,0 62%,12% 50%,0 38%,16% 33%,10% 18%,26% 21%,27% 5%,42% 13%)}
 
 /* layout */
 .layout{width:var(--wrap);margin:0 auto;padding:24px 0;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:20px;align-items:start}
@@ -143,6 +145,7 @@ a:hover{color:var(--coffee);text-decoration-color:currentColor}
   body{font-size:14.5px}
   .stats{gap:12px 22px}
   .stats dd{font-size:32px}
+  .stats div:last-child::after{top:-2px;right:auto;left:calc(100% + 10px)}
   .map-wrap{height:52vh}
   .leaflet-popup-content{min-width:200px;max-width:240px}
 }
