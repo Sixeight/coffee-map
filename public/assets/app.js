@@ -21,7 +21,8 @@
   const fmtDate = (d) => {
     if (!d) return "日付の記録なし";
     const [y, m, day] = d.split("-").map(Number);
-    return `${y}年${m}月${day ? day + "日" : ""}`;
+    const pad = (n) => String(n).padStart(2, "0");
+    return `${y}.${pad(m)}${day ? "." + pad(day) : ""}`;
   };
   const isShopUrl = (u) => /(\.stores\.jp|\.thebase\.in|\.base\.shop|\.theshop\.jp|\.square\.site|rakuten\.co\.jp|\/\/shop\.|\.shop\/)/.test(u || "");
   const latestDate = (s) => s.purchases.map((p) => p.date).filter(Boolean).sort().pop() || "";
@@ -52,6 +53,7 @@
     recentIds = new Set([...shops].filter((s) => s.latest).sort((a, b) => b.latest.localeCompare(a.latest)).slice(0, 3).map((s) => s.id));
     if (data.updated) $("updated").textContent = `データ更新: ${fmtDate(data.updated)}`;
     renderStats();
+    renderTicker();
     initMap();
     renderChips();
     renderPrefSelect();
@@ -74,7 +76,19 @@
       ["豆・セット", beans, "種"],
     ];
     $("stats").innerHTML = items.map(([k, v, u]) => `<div><dt>${k}</dt><dd>${v}<small>${u}</small></dd></div>`).join("") +
-      (latest ? `<div><dt>最近の注文</dt><dd style="font-size:17px;padding-top:6px">${esc(latest.name)}<small>${esc(fmtDate(latest.latest))}</small></dd></div>` : "");
+      (latest ? `<div class="latest"><dt>最近の注文</dt><dd>${esc(latest.name)}<small>${esc(fmtDate(latest.latest))}</small></dd></div>` : "");
+  }
+
+  function renderTicker() {
+    const recent = shops.flatMap((s) => s.purchases.filter((p) => p.date).map((p) => ({ s, p })))
+      .sort((a, b) => b.p.date.localeCompare(a.p.date)).slice(0, 10);
+    const row = (copy) => recent.map(({ s, p }) => {
+      const el = copy ? "span" : "button";
+      return `<${el} class="tick"${copy ? "" : ' type="button"'} data-id="${esc(s.id)}"><b>${esc(fmtDate(p.date))}</b>${esc(s.name)}<span>${esc(p.beans[0] || "")}</span></${el}>`;
+    }).join("");
+    document.querySelector(".ticker").hidden = !recent.length;
+    // 同じ並びを2つ続けて、半分流れたところで先頭に戻すと切れ目なく見える
+    $("ticker").innerHTML = `<div class="ticker-row">${row(false)}</div><div class="ticker-row" aria-hidden="true">${row(true)}</div>`;
   }
 
   function initMap() {
@@ -200,7 +214,7 @@
         <div class="badge${s.area ? " " + esc(s.area) : ""}">${esc(badgeOf(s))}</div>
         <div>
           <div class="i-name">${esc(s.name)}${s.count > 1 ? `<span class="count">${s.count}回</span>` : ""}</div>
-          <div class="i-sub">${esc(placeOf(s))} ・ ${esc(s.latest ? fmtDate(s.latest) : "日付の記録なし")}</div>
+          <div class="i-sub"><span>${esc(placeOf(s))}</span><span>${esc(s.latest ? fmtDate(s.latest) : "日付の記録なし")}</span></div>
           <div class="i-beans">${esc(beans.join(" / "))}</div>
           ${state.active === s.id && !hasCoords(s) ? `<div class="inline-pop">${popupHtml(s)}</div>` : ""}
         </div></li>`;
@@ -265,6 +279,19 @@
       document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.region === "")));
       renderPrefSelect(); renderPrefGrid(); update({ fit: true });
       document.querySelector(".layout").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    $("ticker").addEventListener("click", (e) => {
+      const b = e.target.closest(".tick"); if (!b) return;
+      if (!filtered().some((s) => s.id === b.dataset.id)) {
+        state.q = ""; state.region = ""; state.pref = ""; $("q").value = "";
+        document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.region === "")));
+        renderPrefSelect(); renderPrefGrid(); update();
+      }
+      setActive(b.dataset.id, true);
+    });
+    $("tickerToggle").addEventListener("click", (e) => {
+      const paused = document.querySelector(".ticker").classList.toggle("paused");
+      e.currentTarget.textContent = paused ? "流す" : "止める";
     });
     $("resetView").addEventListener("click", () => { map.closePopup(); fitAll(); });
   }

@@ -16,13 +16,16 @@ coffee-map/
 │   ├── assets/style.css   見た目
 │   ├── assets/app.js      地図・一覧・絞り込みの処理
 │   ├── assets/favicon.svg
+│   ├── assets/masthead.jpg  ヘッダーの帯の写真
 │   └── _headers           キャッシュ設定
 ├── README.md
 ├── UPDATE.md              メールから追記するときの手順
 └── deploy.md              公開の仕組み
 ```
 
-外部から読み込むもの: Leaflet 1.9.4（unpkg）、Noto Sans JP / Noto Serif JP（Google Fonts）、国土地理院の淡色地図タイル、Esri World Light Gray Canvas（日本が画面に入らないときだけ使う世界地図タイル）。
+外部から読み込むもの: Leaflet 1.9.4（unpkg）、Jost / Noto Sans JP（Google Fonts）、国土地理院の淡色地図タイル、Esri World Light Gray Canvas（日本が画面に入らないときだけ使う世界地図タイル）。
+
+ヘッダーの写真は Wikimedia Commons の [Roasted coffee beans.jpg](https://commons.wikimedia.org/wiki/File:Roasted_coffee_beans.jpg)（MarkSweep 撮影、パブリックドメイン）です。差し替えるときは `public/assets/masthead.jpg` を上書きし、`style.css` の `masthead.jpg?v=` の数字を上げます。
 
 ## ローカルで見る
 
@@ -112,6 +115,6 @@ python3 -m http.server 8000
 
 GitHub 連携で `main` に push すると自動で公開されます。詳しくは `deploy.md` を見てください。
 
-`public/data/shops.json` を更新したあとブラウザに古い内容が残るときは、再読み込みしてください（`_headers` で 5 分キャッシュにしています）。`public/assets/` を書き換えたときは、`public/index.html` の `?v=8` の数字を上げるとすぐ反映されます。
+`public/data/shops.json` を更新したあとブラウザに古い内容が残るときは、再読み込みしてください（`_headers` で 5 分キャッシュにしています）。`public/assets/` を書き換えたときは、`public/index.html` の `?v=` の数字を上げるとすぐ反映されます。
 
 公開中: https://roaster-map.nishimu.land/ 。再デプロイの手順は `deploy.md` にあります。
