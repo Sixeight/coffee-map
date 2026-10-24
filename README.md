@@ -16,6 +16,7 @@ coffee-map/
 │   ├── assets/style.css   見た目
 │   ├── assets/app.js      地図・一覧・絞り込みの処理
 │   ├── assets/favicon.svg
+│   ├── assets/masthead.jpg  ヘッダーの帯の写真
 │   └── _headers           キャッシュ設定
 ├── README.md
 ├── UPDATE.md              メールから追記するときの手順
@@ -23,6 +24,8 @@ coffee-map/
 ```
 
 外部から読み込むもの: Leaflet 1.9.4（unpkg）、Jost / Noto Sans JP（Google Fonts）、国土地理院の淡色地図タイル、Esri World Light Gray Canvas（日本が画面に入らないときだけ使う世界地図タイル）。
+
+ヘッダーの写真は Wikimedia Commons の [Roasted coffee beans.jpg](https://commons.wikimedia.org/wiki/File:Roasted_coffee_beans.jpg)（MarkSweep 撮影、パブリックドメイン）です。
 
 ## ローカルで見る
 
