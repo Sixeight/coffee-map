@@ -14,6 +14,17 @@ a:hover{color:var(--coffee);text-decoration-color:currentColor}
 :focus-visible{outline:2px solid var(--coffee);outline-offset:2px}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
+/* language toggle — overlay so Japanese layout stays unchanged */
+.hero{position:relative}
+.lang-switch{position:absolute;top:10px;right:max(10px,env(safe-area-inset-right));z-index:5;display:flex;align-items:center;gap:1px;padding:3px 5px;border:1.5px solid var(--ink);border-radius:999px;background:rgba(255,255,255,.94)}
+.lang-switch button{border:0;background:transparent;color:var(--ink);font:800 11px/1 var(--latin);letter-spacing:.08em;padding:5px 7px;border-radius:999px;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.lang-switch button:hover{color:var(--coffee)}
+.lang-switch button[aria-pressed="true"]:hover{color:#fff}
+.lang-sep{font:700 11px var(--latin);color:var(--ink-3);padding:0 1px}
+html[lang="en"] .masthead h1{font-family:var(--latin);letter-spacing:.02em;word-break:normal}
+html[lang="en"] .badge{font-size:10px;letter-spacing:-.02em}
+
 /* masthead */
 .masthead{background:var(--coffee) url(masthead.jpg?v=2) center 60%/cover;background-blend-mode:multiply;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.45);text-align:center;padding:clamp(18px,2.4vw,30px) 12px clamp(16px,2vw,24px)}
 .masthead-en{margin:0;font:800 clamp(40px,6.5vw,124px)/.92 var(--latin);text-transform:uppercase;letter-spacing:-.015em;text-wrap:balance}

@@ -13,24 +13,41 @@
   const EXTRA = ["海外", "オンライン"];
   const regionOfShop = (s) => s.area === "online" ? "オンライン" : s.area === "overseas" ? "海外" : regionOf(s.prefecture);
   const hasCoords = (s) => Number.isFinite(s.lat) && Number.isFinite(s.lng);
-  const placeOf = (s) => s.area === "online" ? "オンラインのみ（所在地未確認）" : s.area === "overseas" ? `${s.country || "海外"} ${s.city || ""}` : `${s.prefecture} ${s.city || ""}`;
-  const badgeOf = (s) => s.area === "online" ? "WEB" : s.area === "overseas" ? "海外" : shortPref(s.prefecture);
+  const nameOf = (s) => I18N.field(s, "name");
+  const placeOf = (s) => {
+    if (s.area === "online") return I18N.t("placeOnline");
+    if (s.area === "overseas") return `${I18N.field(s, "country") || I18N.t("overseas")} ${I18N.field(s, "city") || ""}`.trim();
+    return `${I18N.pref(s.prefecture)} ${I18N.field(s, "city") || ""}`.trim();
+  };
+  const badgeOf = (s) => s.area === "online" ? "WEB" : s.area === "overseas" ? I18N.t("overseas") : (I18N.lang === "en" ? I18N.pref(s.prefecture) : shortPref(s.prefecture));
   const JAPAN = L.latLngBounds([20, 122], [46.5, 154]);
   const shortPref = (p) => p === "北海道" ? "北海道" : p.replace(/[都府県]$/, "");
+  const prefLabel = (p) => I18N.lang === "en" ? I18N.pref(p) : shortPref(p);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const fmtDate = (d) => {
-    if (!d) return "日付の記録なし";
+    if (!d) return I18N.t("noDate");
     const [y, m, day] = d.split("-").map(Number);
     const pad = (n) => String(n).padStart(2, "0");
     return `${y}.${pad(m)}${day ? "." + pad(day) : ""}`;
   };
+  const times = (n) => I18N.t("times", { n });
   const isShopUrl = (u) => /(\.stores\.jp|\.thebase\.in|\.base\.shop|\.theshop\.jp|\.square\.site|rakuten\.co\.jp|\/\/shop\.|\.shop\/)/.test(u || "");
   const latestDate = (s) => s.purchases.map((p) => p.date).filter(Boolean).sort().pop() || "";
+  const haystackOf = (s) => [
+    s.name, s.name_en, s.prefecture, I18N.PREF_EN[s.prefecture],
+    s.city, s.city_en, s.country, s.country_en,
+    regionOfShop(s), I18N.REGION_EN[regionOfShop(s)],
+    I18N.PREF_EN["海外"], I18N.PREF_EN["オンライン"],
+    ...s.purchases.flatMap((p) => [...p.beans, ...(p.beans_en || []), p.note, p.note_en, p.dateNote, p.dateNote_en]),
+    s.memo, s.memo_en, s.recordedAs, s.recordedAs_en
+  ].filter(Boolean).join(" ").toLowerCase();
 
   const state = { q: "", region: "", pref: "", sort: "date", active: null };
   let shops = [];
   const markers = new Map();
   let map, recentIds = new Set();
+  let updatedDate = "";
+  let loadError = "";
 
   const $ = (id) => document.getElementById(id);
 
@@ -38,7 +55,8 @@
     .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(init)
     .catch((e) => {
-      $("list").innerHTML = `<li class="item">データを読み込めませんでした（${esc(e.message)}）。</li>`;
+      loadError = e.message;
+      $("list").innerHTML = `<li class="item">${esc(I18N.t("loadError", { error: e.message }))}</li>`;
     });
 
   function init(data) {
@@ -48,10 +66,11 @@
       prefIndex: s.area === "overseas" ? 100 : s.area === "online" ? 200 : PREFS.indexOf(s.prefecture),
       latest: latestDate(s),
       count: s.purchases.length,
-      haystack: [s.name, s.prefecture, s.city, s.country || "", regionOfShop(s), ...s.purchases.flatMap((p) => [...p.beans, p.note || ""]), s.memo || ""].join(" ").toLowerCase()
+      haystack: haystackOf(s)
     }));
     recentIds = new Set([...shops].filter((s) => s.latest).sort((a, b) => b.latest.localeCompare(a.latest)).slice(0, 3).map((s) => s.id));
-    if (data.updated) $("updated").textContent = `データ更新: ${fmtDate(data.updated)}`;
+    updatedDate = data.updated || "";
+    renderUpdated();
     renderStats();
     renderTicker();
     initMap();
@@ -64,19 +83,23 @@
     if (fromHash && shops.some((s) => s.id === fromHash)) setActive(fromHash, "instant");
   }
 
+  function renderUpdated() {
+    $("updated").textContent = updatedDate ? I18N.t("dataUpdated", { date: fmtDate(updatedDate) }) : "";
+  }
+
   function renderStats() {
     const prefs = new Set(shops.filter((s) => !s.area && PREFS.includes(s.prefecture)).map((s) => s.prefecture));
     const purchases = shops.reduce((n, s) => n + s.count, 0);
     const beans = shops.reduce((n, s) => n + s.purchases.reduce((m, p) => m + p.beans.length, 0), 0);
     const latest = [...shops].filter((s) => s.latest).sort((a, b) => b.latest.localeCompare(a.latest))[0];
     const items = [
-      ["お店", shops.length, "軒"],
-      ["都道府県", prefs.size, "/ 47"],
-      ["通販での購入", purchases, "回"],
-      ["豆・セット", beans, "種"],
+      [I18N.t("statShops"), shops.length, I18N.t("statShopsUnit")],
+      [I18N.t("statPrefs"), prefs.size, I18N.t("statPrefsUnit")],
+      [I18N.t("statOrders"), purchases, I18N.t("statOrdersUnit")],
+      [I18N.t("statBeans"), beans, I18N.t("statBeansUnit")],
     ];
-    $("stats").innerHTML = items.map(([k, v, u]) => `<div><dt>${k}</dt><dd>${v}<small>${u}</small></dd></div>`).join("") +
-      (latest ? `<div class="latest"><dt>最近の注文</dt><dd>${esc(latest.name)}<small>${esc(fmtDate(latest.latest))}</small></dd></div>` : "");
+    $("stats").innerHTML = items.map(([k, v, u]) => `<div><dt>${esc(k)}</dt><dd>${v}${u ? `<small>${esc(u)}</small>` : ""}</dd></div>`).join("") +
+      (latest ? `<div class="latest"><dt>${esc(I18N.t("statLatest"))}</dt><dd>${esc(nameOf(latest))}<small>${esc(fmtDate(latest.latest))}</small></dd></div>` : "");
   }
 
   function renderTicker() {
@@ -84,11 +107,18 @@
       .sort((a, b) => b.p.date.localeCompare(a.p.date)).slice(0, 10);
     const row = (copy) => recent.map(({ s, p }) => {
       const el = copy ? "span" : "button";
-      return `<${el} class="tick"${copy ? "" : ' type="button"'} data-id="${esc(s.id)}"><b>${esc(fmtDate(p.date))}</b>${esc(s.name)}<span>${esc(p.beans[0] || "")}</span></${el}>`;
+      const bean = (I18N.field(p, "beans") && I18N.field(p, "beans")[0]) || p.beans[0] || "";
+      return `<${el} class="tick"${copy ? "" : ' type="button"'} data-id="${esc(s.id)}"><b>${esc(fmtDate(p.date))}</b>${esc(nameOf(s))}<span>${esc(bean)}</span></${el}>`;
     }).join("");
     document.querySelector(".ticker").hidden = !recent.length;
     // 同じ並びを2つ続けて、半分流れたところで先頭に戻すと切れ目なく見える
     $("ticker").innerHTML = `<div class="ticker-row">${row(false)}</div><div class="ticker-row" aria-hidden="true">${row(true)}</div>`;
+    renderTickerToggle();
+  }
+
+  function renderTickerToggle() {
+    const paused = document.querySelector(".ticker").classList.contains("paused");
+    $("tickerToggle").textContent = I18N.t(paused ? "tickerPlay" : "tickerPause");
   }
 
   function initMap() {
@@ -119,7 +149,7 @@
         html: `<div class="pin${recentIds.has(s.id) ? " recent" : ""}"><span>${s.count > 1 ? s.count : ""}</span></div>`,
         iconSize: [26, 26], iconAnchor: [13, 26], popupAnchor: [0, -24]
       });
-      const m = L.marker([s.lat, s.lng], { icon, title: s.name, riseOnHover: true, keyboard: true })
+      const m = L.marker([s.lat, s.lng], { icon, title: nameOf(s), riseOnHover: true, keyboard: true })
         .bindPopup(() => popupHtml(s), { maxWidth: 320, maxHeight: 440, autoPanPadding: [24, 24] })
         .addTo(map);
       m.on("popupopen", () => setActive(s.id, false));
@@ -147,29 +177,29 @@
   function popupHtml(s) {
     const ps = [...s.purchases].sort((a, b) => (b.date || "").localeCompare(a.date || "")).map((p) => `
       <div class="purchase">
-        <div class="p-date">${esc(fmtDate(p.date))}${p.dateNote ? `<em>（${esc(p.dateNote)}）</em>` : ""}${p.source ? `<span class="src">出典: ${esc(p.source.replace("+", " / "))}</span>` : ""}</div>
-        ${p.orderDate ? `<div class="p-order">メールの注文日: ${esc(fmtDate(p.orderDate))}</div>` : ""}
-        <ul class="beans">${p.beans.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
-        ${p.note ? `<p class="note">${esc(p.note)}</p>` : ""}
+        <div class="p-date">${esc(fmtDate(p.date))}${I18N.field(p, "dateNote") ? `<em>（${esc(I18N.field(p, "dateNote"))}）</em>` : ""}${p.source ? `<span class="src">${esc(I18N.t("source"))} ${esc(I18N.source(p.source))}</span>` : ""}</div>
+        ${p.orderDate ? `<div class="p-order">${esc(I18N.t("orderDate"))} ${esc(fmtDate(p.orderDate))}</div>` : ""}
+        <ul class="beans">${(I18N.field(p, "beans") || p.beans).map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
+        ${I18N.field(p, "note") ? `<p class="note">${esc(I18N.field(p, "note"))}</p>` : ""}
       </div>`).join("");
     const shopLink = s.shopUrl || (isShopUrl(s.url) ? s.url : "");
     const links = shopLink
-      ? [`<a class="btn primary" href="${esc(shopLink)}" target="_blank" rel="noopener">オンラインショップ ↗</a>`]
+      ? [`<a class="btn primary" href="${esc(shopLink)}" target="_blank" rel="noopener">${esc(I18N.t("shopBtn"))}</a>`]
       : [];
-    if (s.url !== shopLink) links.push(`<a class="btn${shopLink ? "" : " primary"}" href="${esc(s.url)}" target="_blank" rel="noopener">公式サイト ↗</a>`);
+    if (s.url !== shopLink) links.push(`<a class="btn${shopLink ? "" : " primary"}" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(I18N.t("siteBtn"))}</a>`);
     return `
       <div class="pop-pref">${esc(placeOf(s))}</div>
-      <div class="pop-name">${esc(s.name)}${s.count > 1 ? `<span class="count">${s.count}回</span>` : ""}</div>
+      <div class="pop-name">${esc(nameOf(s))}${s.count > 1 ? `<span class="count">${esc(times(s.count))}</span>` : ""}</div>
       ${ps}
-      ${s.memo ? `<p class="note">${esc(s.memo)}</p>` : ""}
-      ${s.recordedAs ? `<p class="meta">${esc(s.recordedAs)}</p>` : ""}
+      ${I18N.field(s, "memo") ? `<p class="note">${esc(I18N.field(s, "memo"))}</p>` : ""}
+      ${I18N.field(s, "recordedAs") ? `<p class="meta">${esc(I18N.field(s, "recordedAs"))}</p>` : ""}
       <div class="links">${links.join("")}</div>`;
   }
 
   function renderChips() {
     const counts = Object.fromEntries(REGIONS.map(([r]) => [r, shops.filter((s) => s.region === r).length]));
     EXTRA.forEach((r) => { counts[r] = shops.filter((s) => s.region === r).length; });
-    const all = [["", "すべて", shops.length], ...REGIONS.map(([r]) => [r, r, counts[r]]), ...EXTRA.map((r) => [r, r, counts[r]])];
+    const all = [["", I18N.t("all"), shops.length], ...REGIONS.map(([r]) => [r, I18N.region(r), counts[r]]), ...EXTRA.map((r) => [r, I18N.region(r), counts[r]])];
     $("regionChips").innerHTML = all.filter(([, , n]) => n > 0).map(([v, label, n]) =>
       `<button class="chip" type="button" data-region="${esc(v)}" aria-pressed="${state.region === v}">${esc(label)}<small>${n}</small></button>`).join("");
   }
@@ -177,7 +207,8 @@
   function renderPrefSelect() {
     const sel = $("pref");
     const present = PREFS.filter((p) => shops.some((s) => s.prefecture === p && (!state.region || s.region === state.region)));
-    sel.innerHTML = `<option value="">すべて</option>` + present.map((p) => `<option value="${esc(p)}">${esc(p)}（${shops.filter((s) => s.prefecture === p).length}）</option>`).join("");
+    const wrap = (n) => I18N.lang === "en" ? ` (${n})` : `（${n}）`;
+    sel.innerHTML = `<option value="">${esc(I18N.t("all"))}</option>` + present.map((p) => `<option value="${esc(p)}">${esc(I18N.pref(p))}${wrap(shops.filter((s) => s.prefecture === p).length)}</option>`).join("");
     if (!present.includes(state.pref)) state.pref = "";
     sel.value = state.pref;
   }
@@ -185,8 +216,8 @@
   function renderPrefGrid() {
     const have = new Set(shops.filter((s) => !s.area).map((s) => s.prefecture));
     $("prefGrid").innerHTML = REGIONS.map(([r, a, b]) => `
-      <div class="region"><h3>${esc(r)}</h3><div class="tiles">${PREFS.slice(a, b).map((p) =>
-        `<button class="tile${have.has(p) ? " on" : ""}${state.pref === p ? " sel" : ""}" type="button" data-pref="${esc(p)}" ${have.has(p) ? "" : "disabled"} title="${esc(p)}">${esc(shortPref(p))}</button>`).join("")}</div></div>`).join("");
+      <div class="region"><h3>${esc(I18N.region(r))}</h3><div class="tiles">${PREFS.slice(a, b).map((p) =>
+        `<button class="tile${have.has(p) ? " on" : ""}${state.pref === p ? " sel" : ""}" type="button" data-pref="${esc(p)}" ${have.has(p) ? "" : "disabled"} title="${esc(I18N.pref(p))}">${esc(prefLabel(p))}</button>`).join("")}</div></div>`).join("");
   }
 
   function filtered() {
@@ -199,7 +230,7 @@
       date: (a, b) => (b.latest || "0").localeCompare(a.latest || "0") || a.prefIndex - b.prefIndex,
       north: (a, b) => a.prefIndex - b.prefIndex || b.lat - a.lat,
       count: (a, b) => b.count - a.count || (b.latest || "0").localeCompare(a.latest || "0"),
-      name: (a, b) => a.name.localeCompare(b.name, "ja")
+      name: (a, b) => nameOf(a).localeCompare(nameOf(b), I18N.lang === "en" ? "en" : "ja")
     }[state.sort];
     return list.sort(by);
   }
@@ -207,14 +238,16 @@
   function update({ fit = false } = {}) {
     const list = filtered();
     const ids = new Set(list.map((s) => s.id));
-    $("resultCount").textContent = list.length === shops.length ? `${shops.length}軒すべてを表示中` : `${list.length}軒を表示中（全${shops.length}軒）`;
+    $("resultCount").textContent = list.length === shops.length
+      ? I18N.t("resultAll", { n: shops.length })
+      : I18N.t("resultSome", { n: list.length, total: shops.length });
     $("list").innerHTML = list.map((s) => {
-      const beans = s.purchases.flatMap((p) => p.beans);
+      const beans = s.purchases.flatMap((p) => I18N.field(p, "beans") || p.beans);
       return `<li class="item${state.active === s.id ? " active" : ""}" tabindex="0" data-id="${esc(s.id)}">
         <div class="badge${s.area ? " " + esc(s.area) : ""}">${esc(badgeOf(s))}</div>
         <div>
-          <div class="i-name">${esc(s.name)}${s.count > 1 ? `<span class="count">${s.count}回</span>` : ""}</div>
-          <div class="i-sub"><span>${esc(placeOf(s))}</span><span>${esc(s.latest ? fmtDate(s.latest) : "日付の記録なし")}</span></div>
+          <div class="i-name">${esc(nameOf(s))}${s.count > 1 ? `<span class="count">${esc(times(s.count))}</span>` : ""}</div>
+          <div class="i-sub"><span>${esc(placeOf(s))}</span><span>${esc(s.latest ? fmtDate(s.latest) : I18N.t("noDate"))}</span></div>
           <div class="i-beans">${esc(beans.join(" / "))}</div>
           ${state.active === s.id && !hasCoords(s) ? `<div class="inline-pop">${popupHtml(s)}</div>` : ""}
         </div></li>`;
@@ -227,14 +260,38 @@
     if (fit) fitAll(list.length ? list : shops);
   }
 
+  function refreshLang() {
+    if (loadError) {
+      $("list").innerHTML = `<li class="item">${esc(I18N.t("loadError", { error: loadError }))}</li>`;
+      return;
+    }
+    if (!shops.length) return;
+    renderUpdated();
+    renderStats();
+    renderTicker();
+    renderChips();
+    renderPrefSelect();
+    renderPrefGrid();
+    update();
+    markers.forEach((m, id) => {
+      const s = shops.find((x) => x.id === id);
+      if (!s) return;
+      m.options.title = nameOf(s);
+      const el = m.getElement();
+      if (el) el.title = nameOf(s);
+      if (m.isPopupOpen()) m.setPopupContent(popupHtml(s));
+    });
+  }
+
   function setActive(id, fly) {
     const prev = shops.find((x) => x.id === state.active);
     state.active = id;
     if (prev && !hasCoords(prev) && prev.id !== id) update();
     document.querySelectorAll(".item").forEach((el) => el.classList.toggle("active", el.dataset.id === id));
     markers.forEach((m, mid) => { const el = m.getElement(); el && el.classList.toggle("active", mid === id); });
-    if (id) history.replaceState(null, "", "#" + encodeURIComponent(id));
-    else if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    const path = location.pathname + location.search;
+    if (id) history.replaceState(null, "", path + "#" + encodeURIComponent(id));
+    else if (location.hash) history.replaceState(null, "", path);
     const s = id && shops.find((x) => x.id === id);
     if (s && !hasCoords(s)) {
       // 地図に置けないお店（オンライン）は一覧の中で詳細を開く
@@ -291,8 +348,9 @@
     });
     $("tickerToggle").addEventListener("click", (e) => {
       const paused = document.querySelector(".ticker").classList.toggle("paused");
-      e.currentTarget.textContent = paused ? "流す" : "止める";
+      e.currentTarget.textContent = I18N.t(paused ? "tickerPlay" : "tickerPause");
     });
     $("resetView").addEventListener("click", () => { map.closePopup(); fitAll(); });
+    document.addEventListener("langchange", refreshLang);
   }
 })();
