@@ -200,7 +200,7 @@
         <div class="badge${s.area ? " " + esc(s.area) : ""}">${esc(badgeOf(s))}</div>
         <div>
           <div class="i-name">${esc(s.name)}${s.count > 1 ? `<span class="count">${s.count}回</span>` : ""}</div>
-          <div class="i-sub">${esc(placeOf(s))} ・ ${esc(s.latest ? fmtDate(s.latest) : "日付の記録なし")}</div>
+          <div class="i-sub"><span>${esc(placeOf(s))}</span><span>${esc(s.latest ? fmtDate(s.latest) : "日付の記録なし")}</span></div>
           <div class="i-beans">${esc(beans.join(" / "))}</div>
           ${state.active === s.id && !hasCoords(s) ? `<div class="inline-pop">${popupHtml(s)}</div>` : ""}
         </div></li>`;
