@@ -1,0 +1,1707 @@
+{
+  "title": "通販で買ったコーヒー豆のお店マップ",
+  "updated": "2026-10-24",
+  "shops": [
+    {
+      "id": "baristart",
+      "name": "BARISTART COFFEE",
+      "prefecture": "北海道",
+      "city": "釧路市",
+      "lat": 42.998,
+      "lng": 144.395,
+      "url": "https://www.baristartcoffee.com/",
+      "purchases": [
+        {
+          "date": "2024-08-03",
+          "beans": [
+            "Brazil – Sitio São Pedro #1（Lourdes de Fatima de Souza, 80 hours）100g",
+            "El Salvador – San Francisco #2 Geisha Rojo（Salaverria）100g"
+          ],
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ]
+    },
+    {
+      "id": "coffeemangood",
+      "name": "COFFEEMAN good",
+      "prefecture": "青森県",
+      "city": "青森市",
+      "lat": 40.826,
+      "lng": 140.738,
+      "url": "https://coffeemangood.stores.jp/",
+      "purchases": [
+        {
+          "date": "2024-08-10",
+          "beans": [
+            "〈FRUITY・ELEGANT〉Dreidi Perez Geisha / Peru 100g",
+            "〈FRUITY・ELEGANT〉Carmelo & Deysi Geisha DFW No.1 / Bolivia 100g"
+          ],
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ]
+    },
+    {
+      "id": "nagasawa",
+      "name": "NAGASAWA COFFEE",
+      "prefecture": "岩手県",
+      "city": "盛岡市",
+      "lat": 39.714,
+      "lng": 141.144,
+      "url": "https://www.nagasawa-coffee.net/",
+      "purchases": [
+        {
+          "date": "2024-08-25",
+          "beans": [
+            "シングルオリジン100g×3種 特別セット（浅煎りセット・豆のまま）"
+          ],
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ]
+    },
+    {
+      "id": "45coffee",
+      "name": "45COFFEE ROASTERY",
+      "prefecture": "宮城県",
+      "city": "仙台市青葉区",
+      "lat": 38.261,
+      "lng": 140.873,
+      "url": "https://45coffee.theshop.jp/",
+      "purchases": [
+        {
+          "date": "2024-09-07",
+          "beans": [
+            "Light Roast 150g×2"
+          ],
+          "note": "めちゃくちゃ美味しかったのでまた買いたい",
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ]
+    },
+    {
+      "id": "08coffee",
+      "name": "08COFFEE",
+      "prefecture": "秋田県",
+      "city": "秋田市",
+      "lat": 39.718,
+      "lng": 140.094,
+      "url": "https://08coffee.jp/",
+      "shopUrl": "https://08coffee.thebase.in/",
+      "purchases": [
+        {
+          "date": "2024-09-23",
+          "beans": [
+            "マスターズセレクト・ライト（おまかせ100g×3種）"
+          ],
+          "note": "深煎りだった",
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ],
+      "recordedAs": "Notionでは「80COFFEE」と記録"
+    },
+    {
+      "id": "0123coffee",
+      "name": "0123 COFFEE",
+      "prefecture": "山形県",
+      "city": "山形市",
+      "lat": 38.183,
+      "lng": 140.289,
+      "url": "https://0123coffee.stores.jp/",
+      "purchases": [
+        {
+          "date": "2024-10-06",
+          "beans": [
+            "Ethiopia Gesha G1",
+            "China – Dehong Yeast Fermentation Honey Process"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "obros",
+      "name": "OBROS COFFEE",
+      "prefecture": "福島県",
+      "city": "郡山市",
+      "lat": 37.397,
+      "lng": 140.377,
+      "url": "https://obroscoffee.jp/",
+      "purchases": [
+        {
+          "date": "2024-11-18",
+          "beans": [
+            "トライアルビーンズ 40g×3銘柄（オンラインストア限定）"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion+メール"
+        }
+      ]
+    },
+    {
+      "id": "mood",
+      "name": "MOOD COFFEE & ESPRESSO",
+      "prefecture": "茨城県",
+      "city": "水戸市",
+      "lat": 36.375,
+      "lng": 140.472,
+      "url": "https://moodcoffee-espresso.com/",
+      "purchases": [
+        {
+          "date": "2024-11-23",
+          "beans": [
+            "Colombia Pink Bourbon Anaerobic Honey",
+            "Colombia Geisha Washed"
+          ],
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ]
+    },
+    {
+      "id": "hitsuji",
+      "name": "ひつじ珈琲",
+      "prefecture": "栃木県",
+      "city": "大田原市",
+      "lat": 36.918,
+      "lng": 140.148,
+      "url": "https://hitsuji-coffee.com/",
+      "purchases": [
+        {
+          "date": "2024-12-01",
+          "beans": [
+            "イエメン アールマッカ極（焙煎度9）",
+            "イエメン アールマッカ（焙煎度3）",
+            "エチオピア シャキッソ G1",
+            "ニカラグア エル・ボスケ農園"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion+メール"
+        }
+      ]
+    },
+    {
+      "id": "warmth",
+      "name": "warmth",
+      "prefecture": "群馬県",
+      "city": "高崎市",
+      "lat": 36.326,
+      "lng": 139.009,
+      "url": "https://mainwarmth.stores.jp/",
+      "purchases": [
+        {
+          "date": "2024-12-21",
+          "beans": [
+            "Diego Armando Madrigal / Typica – Honey / Costa Rica",
+            "Teodoro Engelhardt / Geisha – Fully Washed / Guatemala"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "coffeepost",
+      "name": "COFFEE POST",
+      "prefecture": "埼玉県",
+      "city": "川越市",
+      "lat": 35.915,
+      "lng": 139.483,
+      "url": "http://coffeepost.jp/",
+      "purchases": [
+        {
+          "date": "2024-12-31",
+          "beans": [
+            "ホンジュラス ゲイシャ 浅煎り 100g",
+            "中国雲南 デーホン 浅煎り 200g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "sevensteps",
+      "name": "SEVEN STEPS COFFEE CLUB",
+      "prefecture": "千葉県",
+      "city": "千葉市稲毛区",
+      "lat": 35.627,
+      "lng": 140.097,
+      "url": "https://sevenstepscoffeeclub.com/",
+      "purchases": [
+        {
+          "date": "2025-01-12",
+          "beans": [
+            "Aroma Nativo / Aji Hydro Honey / Colombia",
+            "Sumava de Lourdes / Geisha / Costa Rica / Yellow Honey"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "kitasando",
+      "name": "KITASANDŌ COFFEE",
+      "prefecture": "東京都",
+      "city": "渋谷区",
+      "lat": 35.679,
+      "lng": 139.706,
+      "url": "https://kitasandocoffee.com/",
+      "purchases": [
+        {
+          "date": "2025-02-11",
+          "beans": [
+            "Ethiopia Halo Hartume Carbonic Maceration（ナチュラル）",
+            "Colombia El Paraíso – Rose Tea –"
+          ],
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ]
+    },
+    {
+      "id": "roastdesign",
+      "name": "Roast Design Coffee",
+      "prefecture": "神奈川県",
+      "city": "川崎市麻生区",
+      "lat": 35.602,
+      "lng": 139.51,
+      "url": "https://roastdesigncoffee.com/",
+      "purchases": [
+        {
+          "date": "2025-04-13",
+          "beans": [
+            "Honduras COE'24 Las Tres Peñas 100g",
+            "Ethiopia Guji Uraga Tabe Burka 100g",
+            "Guatemala Santa Cruz 100g"
+          ],
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ],
+      "recordedAs": "Notionでは「♥(間違った)」と記録"
+    },
+    {
+      "id": "verve",
+      "name": "VERVE COFFEE ROASTERS 北鎌倉",
+      "prefecture": "神奈川県",
+      "city": "鎌倉市",
+      "lat": 35.333,
+      "lng": 139.546,
+      "url": "https://vervecoffee.jp/pages/kitakamakura",
+      "purchases": [
+        {
+          "date": "2025-01-26",
+          "beans": [
+            "Sidamo 200g",
+            "Amparo Maya 200g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "days",
+      "name": "Days Coffee Roaster",
+      "prefecture": "新潟県",
+      "city": "新潟市中央区",
+      "lat": 37.889,
+      "lng": 139.029,
+      "url": "https://dayscoffeeroaster.jp/",
+      "purchases": [
+        {
+          "date": "2025-03-07",
+          "beans": [
+            "Kilimbi WS 200g",
+            "Guariroba Fruity 100g",
+            "Milan Agi 100g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "renshiro",
+      "name": "恋史郎コーヒー",
+      "prefecture": "宮崎県",
+      "city": "宮崎市",
+      "lat": 31.915,
+      "lng": 131.424,
+      "url": "https://www.renshirocoffee.com/",
+      "purchases": [
+        {
+          "date": "2025-03-29",
+          "beans": [
+            "Colombia / Los Patios / Geisha / Honey + Peach Co-Fermentation 300g"
+          ],
+          "dateNote": "富山県の達成日",
+          "source": "Notion+メール",
+          "orderDate": "2025-03-20"
+        }
+      ],
+      "recordedAs": "Notionでは富山県の枠に記録（所在地は宮崎県）"
+    },
+    {
+      "id": "townsfolk",
+      "name": "townsfolk coffee",
+      "prefecture": "石川県",
+      "city": "金沢市",
+      "lat": 36.568,
+      "lng": 136.651,
+      "url": "https://townsfolkcoffee.shop/",
+      "purchases": [
+        {
+          "date": "2025-03-29",
+          "beans": [
+            "Rwanda Shyira 200g",
+            "Peru Rosas Pata 200g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "legare",
+      "name": "LEGARE COFFEE ROASTER",
+      "prefecture": "北海道",
+      "city": "札幌市西区",
+      "lat": 43.088,
+      "lng": 141.277,
+      "url": "https://legarecoffee.theshop.jp/",
+      "purchases": [
+        {
+          "date": "2025-04-27",
+          "beans": [
+            "ロースタースペシャルセレクト4種（浅煎り〜中煎り）"
+          ],
+          "dateNote": "福井県の達成日",
+          "source": "Notion+メール"
+        }
+      ],
+      "recordedAs": "Notionでは福井県の枠に記録（所在地は北海道）"
+    },
+    {
+      "id": "akito",
+      "name": "AKITO COFFEE",
+      "prefecture": "山梨県",
+      "city": "甲府市",
+      "lat": 35.671,
+      "lng": 138.57,
+      "url": "https://akitocoffee.com/",
+      "purchases": [
+        {
+          "date": "2025-05-14",
+          "beans": [
+            "Astrid Medina / Colombia（浅煎り 150g）",
+            "Acacia Hills Geisha / Tanzania（浅煎り 100g）",
+            "Finca Los Colibrí / Honduras（浅煎り 150g）"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "foret",
+      "name": "Foret coffee",
+      "prefecture": "長野県",
+      "city": "上水内郡信濃町",
+      "lat": 36.776,
+      "lng": 138.21,
+      "url": "https://foretcoffee.thebase.in/",
+      "purchases": [
+        {
+          "date": "2025-05-25",
+          "beans": [
+            "Kenya Washed 浅焼き 150g",
+            "Rwanda Washed 浅焼き 150g",
+            "Ethiopia Natural 浅焼き 150g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "benihi",
+      "name": "紅緋（べにひ）",
+      "prefecture": "岐阜県",
+      "city": "関市",
+      "lat": 35.482,
+      "lng": 136.946,
+      "url": "https://www.benihicoffee.com/",
+      "purchases": [
+        {
+          "date": "2025-06-07",
+          "beans": [
+            "コスタリカ コフィアディベルサ農園 モンテクリスト 100g",
+            "マダガスカル サンタトラ マダガスカルブルボン 100g",
+            "コスタリカ コフィアディベルサ農園 ルメスダン 100g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "ethicus",
+      "name": "ETHICUS",
+      "prefecture": "静岡県",
+      "city": "静岡市葵区",
+      "lat": 34.977,
+      "lng": 138.392,
+      "url": "https://ethicus-store.jp/",
+      "purchases": [
+        {
+          "date": "2025-06-28",
+          "beans": [
+            "Alaska Del Sur / Ecuador",
+            "Maputo Lot12 / Ecuador",
+            "Finca Santa Rosa / El Salvador",
+            "Iván Gutiérrez / Costa Rica"
+          ],
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ]
+    },
+    {
+      "id": "freak",
+      "name": "FREAK COFFEE ROASTERS",
+      "prefecture": "愛知県",
+      "city": "名古屋市名東区",
+      "lat": 35.183,
+      "lng": 137.02,
+      "url": "https://freak-coffee.com/",
+      "purchases": [
+        {
+          "date": "2025-07-13",
+          "beans": [
+            "Rwanda Nkara 2024 100g",
+            "Colombia Finca Milan【Nitro】100g",
+            "Indonesia Frinsa Sarapan #2 100g"
+          ],
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ]
+    },
+    {
+      "id": "otomoni",
+      "name": "OTOMONI COFFEE",
+      "prefecture": "三重県",
+      "city": "松阪市",
+      "lat": 34.561,
+      "lng": 136.606,
+      "url": "https://otomoni.theshop.jp/",
+      "purchases": [
+        {
+          "date": "2025-08-03",
+          "beans": [
+            "中国 雲南 アナエロビックハニー・インフューズド（レモン＆ベルガモット）ライトロースト 250g",
+            "ニカラグア リモンシリョ農園 ナチュラル（ファンキー）ライトロースト 250g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "atara",
+      "name": "ATARA COFFEE",
+      "prefecture": "滋賀県",
+      "city": "長浜市",
+      "lat": 35.398,
+      "lng": 136.276,
+      "url": "https://ataracoffee.square.site/",
+      "purchases": [
+        {
+          "date": "2025-08-25",
+          "beans": [
+            "Colombia Juan Martín（Geisha / Washed）",
+            "Colombia Juan Carlos（Geisha / Washed）",
+            "Rwanda Simbi（Bourbon / Honey）"
+          ],
+          "note": "美味しい",
+          "dateNote": "県の達成日（記録は「2025-08-2k5」）",
+          "source": "Notion+メール"
+        }
+      ]
+    },
+    {
+      "id": "alt",
+      "name": "alt.coffee roasters",
+      "prefecture": "京都府",
+      "city": "京都市中京区",
+      "lat": 35.01,
+      "lng": 135.747,
+      "url": "https://altroasters.thebase.in/",
+      "purchases": [
+        {
+          "date": "2025-09-15",
+          "beans": [
+            "ルワンダ バフ 150g",
+            "コスタリカ アナエロビックナチュラル 150g",
+            "ドミニカ共和国 150g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "aoma",
+      "name": "aoma coffee",
+      "prefecture": "大阪府",
+      "city": "大阪市中央区",
+      "lat": 34.681,
+      "lng": 135.502,
+      "url": "https://aomacoffee.com/",
+      "purchases": [
+        {
+          "date": "2025-09-28",
+          "beans": [
+            "Halo – Wolisho & Dega – / Ethiopia 200g",
+            "Didimo Guzmán – Castillo – / Colombia 200g",
+            "Roger Ureña – SL28 – / Costa Rica 150g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "coffeeup",
+      "name": "coffee up! KOBE",
+      "prefecture": "兵庫県",
+      "city": "神戸市中央区",
+      "lat": 34.676,
+      "lng": 135.177,
+      "url": "https://coffeeupkobe.thebase.in/",
+      "purchases": [
+        {
+          "date": "2024-11-02",
+          "beans": [
+            "エチオピア Worka Sakaro（浅煎り）300g",
+            "コロンビア Carambolo（浅煎り）100g"
+          ],
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ]
+    },
+    {
+      "id": "any",
+      "name": "ANY B&B + COFFEE",
+      "prefecture": "奈良県",
+      "city": "奈良市",
+      "lat": 34.68,
+      "lng": 135.826,
+      "url": "https://shop.helloanyjapan.com/",
+      "purchases": [
+        {
+          "date": "2025-11-23",
+          "beans": [
+            "Aricha, Ethiopia – Natural 200g",
+            "Tatu, Kenya – Natural 200g",
+            "Chelelektu, Ethiopia – Washed 200g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "kamin",
+      "name": "KAMIN COFFEE ROASTERS",
+      "prefecture": "和歌山県",
+      "city": "岩出市",
+      "lat": 34.255,
+      "lng": 135.316,
+      "url": "https://kamin-coffee.shop/",
+      "purchases": [
+        {
+          "date": "2025-11-23",
+          "beans": [
+            "Roaster's Select 100g×3種セット"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "medel",
+      "name": "medel coffee",
+      "prefecture": "鳥取県",
+      "city": "鳥取市",
+      "lat": 35.515,
+      "lng": 134.196,
+      "url": "https://medelcoffee.thebase.in/",
+      "purchases": [
+        {
+          "date": "2025-12-17",
+          "beans": [
+            "Mulish Premium Washed / Ethiopia",
+            "Mahembe / Rwanda",
+            "Gesha Slow Dry / Ethiopia"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion+メール"
+        }
+      ]
+    },
+    {
+      "id": "azu",
+      "name": "Azu.coffee roastery",
+      "prefecture": "島根県",
+      "city": "出雲市",
+      "lat": 35.273,
+      "lng": 132.644,
+      "url": "https://azucoffee.base.shop/",
+      "purchases": [
+        {
+          "date": "2026-01-25",
+          "beans": [
+            "ルワンダ ジュル（浅煎り 200g）",
+            "パナマ ドン・ペペ農園（浅煎り 200g）",
+            "エチオピア チレ（浅煎り 200g）"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion+メール"
+        }
+      ]
+    },
+    {
+      "id": "onsaya",
+      "name": "ONSAYA COFFEE",
+      "prefecture": "岡山県",
+      "city": "岡山市北区",
+      "lat": 34.669,
+      "lng": 133.915,
+      "url": "https://onsaya.com/",
+      "purchases": [
+        {
+          "date": "2026-03-23",
+          "beans": [
+            "Roaster's Select 200g×3"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion+メール",
+          "orderDate": "2026-02-20"
+        }
+      ]
+    },
+    {
+      "id": "breath",
+      "name": "BREATH HIROSHIMA",
+      "prefecture": "広島県",
+      "city": "広島市南区",
+      "lat": 34.386,
+      "lng": 132.479,
+      "url": "https://www.breath-hiroshima.com/",
+      "shopUrl": "https://introduction-coffee.stores.jp/",
+      "purchases": [
+        {
+          "date": "2026-03-28",
+          "beans": [
+            "【浅煎り】Roaster Select 500g（250g×2）"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "sai",
+      "name": "Saï Coffee Roastery",
+      "prefecture": "山口県",
+      "city": "下松市",
+      "lat": 34.019,
+      "lng": 131.863,
+      "url": "https://shop.saicoffeeroastery.com/",
+      "purchases": [
+        {
+          "date": "2026-04-27",
+          "beans": [
+            "エチオピア ゴチチ ウォッシュト［METAD社］100g",
+            "タンザニア アナエロ 100g",
+            "エチオピア ゴチチ ナチュラル 100g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "toco",
+      "name": "トーコーヒー",
+      "prefecture": "徳島県",
+      "city": "徳島市",
+      "lat": 34.077,
+      "lng": 134.573,
+      "url": "https://coffeeto.stores.jp/",
+      "purchases": [
+        {
+          "date": "2026-05-28",
+          "beans": [
+            "El Salvador – Raúl Rivera –"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion+メール"
+        }
+      ]
+    },
+    {
+      "id": "quail",
+      "name": "クエイル珈琲",
+      "prefecture": "徳島県",
+      "city": "名西郡石井町",
+      "lat": 34.086,
+      "lng": 134.438,
+      "url": "https://quailcoffee.base.shop/",
+      "purchases": [
+        {
+          "date": "2026-05-28",
+          "beans": [
+            "WEB限定 お試しセット（3種詰め合わせ）"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "corsica",
+      "name": "CORSICA COFFEE DEVELOPMENT",
+      "prefecture": "香川県",
+      "city": "高松市",
+      "lat": 34.335,
+      "lng": 134.046,
+      "url": "https://shop.corsicacoffee.com/",
+      "purchases": [
+        {
+          "date": "2026-06-19",
+          "beans": [
+            "#9 Dream – El Origen / Colombia Chiroso Washed 100g",
+            "Imagine 100g",
+            "Bloomin' 150g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "branch",
+      "name": "BRANCH COFFEE",
+      "prefecture": "愛媛県",
+      "city": "西条市",
+      "lat": 33.927,
+      "lng": 133.082,
+      "url": "https://shop.branchcoffee.jp/",
+      "purchases": [
+        {
+          "date": "2026-07-06",
+          "beans": [
+            "ニカラグア ウン・レガロ・デ・ディオス パカマラ・ナチュラル 100g",
+            "エチオピア アレマイエフ・ヒロ ナチュラル 100g",
+            "コスタリカ サンタ・テレサ レッドハニー 100g",
+            "ケニア ガチャタ 100g"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion+メール"
+        }
+      ]
+    },
+    {
+      "id": "sommarlek",
+      "name": "sommarlek coffee roaster",
+      "prefecture": "高知県",
+      "city": "安芸郡奈半利町",
+      "lat": 33.424,
+      "lng": 134.019,
+      "url": "https://sommarlek.thebase.in/",
+      "purchases": [
+        {
+          "date": "2026-07-24",
+          "beans": [
+            "おすすめ豆3種セット（200g×3種）"
+          ],
+          "dateNote": "県の達成日",
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "manly",
+      "name": "MANLY COFFEE",
+      "prefecture": "福岡県",
+      "city": "福岡市中央区",
+      "lat": 33.574,
+      "lng": 130.405,
+      "url": "https://manly-coffee.com/",
+      "purchases": [
+        {
+          "date": "2026-09-17",
+          "beans": [
+            "シングルオリジン2種セット"
+          ],
+          "source": "Notion+メール",
+          "dateNote": "メールの注文日"
+        }
+      ]
+    },
+    {
+      "id": "ars",
+      "name": "ARS OF COFFEE ROASTERS",
+      "prefecture": "佐賀県",
+      "city": "鳥栖市",
+      "lat": 33.361,
+      "lng": 130.51,
+      "url": "https://arsofcoffee.stores.jp/",
+      "purchases": [
+        {
+          "date": "2026-10-01",
+          "beans": [
+            "エチオピア イルガチェフェ コンガ G1（浅煎り）200g",
+            "ペルー エル・ピノ農園 ゲイシャ（浅煎り）100g",
+            "コロンビア パシオン・デ・ラ・シエラ（中煎り）100g"
+          ],
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "nai",
+      "name": "nai",
+      "prefecture": "長崎県",
+      "city": "諫早市",
+      "lat": 32.845,
+      "lng": 130.054,
+      "url": "https://naicoffee.thebase.in/",
+      "purchases": [
+        {
+          "date": "2026-10-17",
+          "beans": [
+            "飲み比べ3種セット（豆のまま）"
+          ],
+          "source": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "kariomons",
+      "name": "カリオモンズコーヒーロースター",
+      "prefecture": "長崎県",
+      "city": "西彼杵郡時津町",
+      "lat": 32.833,
+      "lng": 129.839,
+      "url": "https://www.kariomons.com/",
+      "purchases": [
+        {
+          "date": "2022-11-16",
+          "beans": [
+            "レセパ Fully Washed",
+            "キアワムルル Fully Washed"
+          ],
+          "note": "選べるコーヒーセット",
+          "source": "メール"
+        },
+        {
+          "date": "2023-09-12",
+          "beans": [
+            "ラ・フォルトゥーナ Anaerobic Washed",
+            "ガコ Soaking Washed"
+          ],
+          "note": "選べるコーヒーセット",
+          "source": "メール"
+        }
+      ],
+      "recordedAs": "Notionでは候補のまま（購入はメールで確認）"
+    },
+    {
+      "id": "stylecoffee",
+      "name": "STYLE COFFEE",
+      "prefecture": "京都府",
+      "city": "京都市上京区",
+      "lat": 35.018,
+      "lng": 135.769,
+      "url": "https://www.stylecoffee.jp/",
+      "purchases": [
+        {
+          "date": "2020-12-03",
+          "beans": [
+            "Tasting cup 4種類＋レシピセット"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-01-14",
+          "beans": [
+            "Costa Rica - La Candelilla 150g",
+            "El Salvador - Santa Rosa 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-02-21",
+          "beans": [
+            "Ethiopia - Kayon Mountain 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-03-22",
+          "beans": [
+            "Rwanda - Kmajumba 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-05-27",
+          "beans": [
+            "Colombia - La Joya 150g",
+            "[Espresso Roast] Brazil - Conesol 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-06-21",
+          "beans": [
+            "Ethiopia - Haru 150g",
+            "Rwanda - N’kara 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-07-23",
+          "beans": [
+            "Kenya - Maganjo AA 150g",
+            "Rwanda - N’kara 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-08-03",
+          "beans": [
+            "Colombia - Jose Uribe 150g",
+            "Brazil - Conesol 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-08-24",
+          "beans": [
+            "Ethiopia - Uraga 150g",
+            "Rwanda - N’kara 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-09-03",
+          "beans": [
+            "Ethiopia - Uraga 500g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-10-08",
+          "beans": [
+            "Rwanda - N’kara 500g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-11-23",
+          "beans": [
+            "Colombia - Jose Uribe 500g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2022-01-05",
+          "beans": [
+            "Ethiopia - Danche 150g",
+            "Ethiopia - Haru 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2022-05-25",
+          "beans": [
+            "Ethiopia - Haru 150g",
+            "Ecuador - Arnaud Causse 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2022-08-26",
+          "beans": [
+            "Ethiopia - Endalkachew 500g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2022-11-19",
+          "beans": [
+            "Drip Bag 6種（Ethiopia Hallo#19 / Rwanda / Kenya / Colombia / Brazil Santa Helena Natural / Brazil Dark Roast）"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2022-12-14",
+          "beans": [
+            "Panama - Auromar Geisha 100g",
+            "Brazil - Santa Helena 150g",
+            "Colombia - Caña Dulce 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2023-03-06",
+          "beans": [
+            "Honduras - La Fila 200g",
+            "Uganda - Zinule 200g",
+            "Ethiopia - Tome 200g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2023-05-25",
+          "beans": [
+            "Colombia - Buena Vista 500g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2023-07-19",
+          "beans": [
+            "Kenya - Kiungu AB 500g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2023-08-08",
+          "beans": [
+            "Colombia - Reina de Saba 500g",
+            "Drip Bag 3種（Kenya / Ethiopia Natural / Brazil）"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2023-11-05",
+          "beans": [
+            "Honduras - Los Cedros Lot1 & Lot2 set 100g+100g",
+            "Kenya - Kiungu AB 200g",
+            "Peru - La Colmena 200g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2023-12-28",
+          "beans": [
+            "Ethiopia - Tabe Bruka 500g",
+            "Kenya - Gatomboya 200g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2024-03-02",
+          "beans": [
+            "Colombia - Astrid Medina 200g",
+            "Honduras Geisha - Juan Carlos Juarez 100g",
+            "Drip Bag 4種（Kenya / Honduras / Brazil / Ethiopia Natural）"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2024-05-28",
+          "beans": [
+            "Rwanda - Remera 200g",
+            "Ethiopia - Tabe Bruka Natural 200g",
+            "Kenya - Gatomboya 200g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2024-07-01",
+          "beans": [
+            "Ethiopia - Tome 200g",
+            "Rwanda - Remera 200g",
+            "Ethiopia - Tabe Bruka Natural 200g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2024-10-21",
+          "beans": [
+            "Burundi - Buzira 200g"
+          ],
+          "source": "メール"
+        }
+      ]
+    },
+    {
+      "id": "andcoffee",
+      "name": "AND COFFEE ROASTERS",
+      "prefecture": "熊本県",
+      "city": "熊本市中央区",
+      "lat": 32.805,
+      "lng": 130.711,
+      "url": "https://www.andcoffeeroasters.com/",
+      "purchases": [
+        {
+          "date": "2024-01-22",
+          "beans": [
+            "お試しセット 50g×3種類"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2024-01-29",
+          "beans": [
+            "[LIGHT] HONDURAS FINCA EL ROBLE 150g",
+            "[LIGHT] ECUADOR FINCA CRUZ LOMA 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2024-02-12",
+          "beans": [
+            "定期便レギュラーコース 150g×3"
+          ],
+          "source": "メール",
+          "note": "定期便"
+        },
+        {
+          "date": "2024-03-12",
+          "beans": [
+            "定期便レギュラーコース 150g×3"
+          ],
+          "source": "メール",
+          "note": "定期便"
+        },
+        {
+          "date": "2024-04-12",
+          "beans": [
+            "定期便レギュラーコース 150g×3"
+          ],
+          "source": "メール",
+          "note": "定期便"
+        },
+        {
+          "date": "2024-05-12",
+          "beans": [
+            "定期便レギュラーコース 150g×3"
+          ],
+          "source": "メール",
+          "note": "定期便"
+        },
+        {
+          "date": "2024-06-12",
+          "beans": [
+            "定期便レギュラーコース 150g×3"
+          ],
+          "source": "メール",
+          "note": "定期便"
+        },
+        {
+          "date": "2024-07-12",
+          "beans": [
+            "定期便レギュラーコース 150g×3"
+          ],
+          "source": "メール",
+          "note": "定期便"
+        }
+      ]
+    },
+    {
+      "id": "definitive",
+      "name": "Definitive.",
+      "prefecture": "東京都",
+      "city": "杉並区",
+      "lat": 35.708,
+      "lng": 139.652,
+      "url": "https://definitive.thebase.in/",
+      "purchases": [
+        {
+          "date": "2024-02-12",
+          "beans": [
+            "[数量限定] Abu Geisha Set（5種）"
+          ],
+          "source": "メール"
+        }
+      ]
+    },
+    {
+      "id": "suzunari",
+      "name": "suzunari coffee",
+      "prefecture": "大分県",
+      "city": "臼杵市",
+      "lat": 33.096,
+      "lng": 131.787,
+      "url": "https://suzunaricoffee.com/",
+      "purchases": [
+        {
+          "date": "2023-12-02",
+          "beans": [
+            "エチオピア アシェナフィ・アリチャ G1",
+            "【ONLINE SHOP限定】スタンダードセット（100g×3種）",
+            "Nicaragua La Bendicion Honey"
+          ],
+          "source": "メール"
+        }
+      ],
+      "shopUrl": "https://shop.suzunaricoffee.com/"
+    },
+    {
+      "id": "bloom",
+      "name": "ブルームコーヒー",
+      "prefecture": "京都府",
+      "city": "京都市下京区",
+      "lat": 34.991,
+      "lng": 135.755,
+      "url": "https://bloomcoffee.thebase.in/",
+      "purchases": [
+        {
+          "date": "2020-05-29",
+          "beans": [
+            "エチオピア イルガチェフェ コチャレ G-1ナチュラル 100g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2020-07-12",
+          "beans": [
+            "ブラジル トミオ・フクダ DOT 100g",
+            "パプアニューギニア シグリAA 100g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2020-08-29",
+          "beans": [
+            "エチオピア イルガチェフェ コチャレ G-1ナチュラル 100g",
+            "ブルームブレンド 100g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2020-10-25",
+          "beans": [
+            "グアテマラ ウエウエテナンゴSHB 100g",
+            "ドミニカ バラオナAA 100g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2020-11-23",
+          "beans": [
+            "エチオピア イルガチェフェ コチャレ G-1ナチュラル 100g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2020-12-26",
+          "beans": [
+            "エチオピア イルガチェフェ コチャレ G-1ナチュラル 100g"
+          ],
+          "source": "メール"
+        }
+      ]
+    },
+    {
+      "id": "kurashi",
+      "name": "暮らしと珈琲",
+      "prefecture": "岡山県",
+      "city": "岡山市中区",
+      "lat": 34.703,
+      "lng": 133.957,
+      "url": "https://tostinocoffee.com/",
+      "purchases": [
+        {
+          "date": "2022-01-16",
+          "beans": [
+            "はじまりのルワンダ 100g"
+          ],
+          "source": "メール",
+          "note": "器具と一緒に購入"
+        }
+      ]
+    },
+    {
+      "id": "torinotorio",
+      "name": "torinotorio『珈琲と文鳥』（焙煎: 永田珈琲倶楽部）",
+      "prefecture": "東京都",
+      "city": "小平市",
+      "lat": 35.728,
+      "lng": 139.478,
+      "url": "https://www.torinotorio.net/portfolio/coffee_buncho/",
+      "purchases": [
+        {
+          "date": "2021-02-28",
+          "beans": [
+            "鳴き声ブレンド：キャルキャル",
+            "鳴き声ブレンド：ピポポポ",
+            "鳴き声ブレンド：キューキュー",
+            "鳴き声ブレンド：チーヨチヨ"
+          ],
+          "source": "メール"
+        }
+      ],
+      "shopUrl": "https://shop.torinotorio.net/"
+    },
+    {
+      "id": "filtersupply",
+      "name": "FILTER SUPPLY",
+      "prefecture": "福岡県",
+      "city": "福岡市中央区",
+      "lat": 33.581,
+      "lng": 130.406,
+      "url": "https://filter-supply.jp/",
+      "purchases": [
+        {
+          "date": "2022-01-25",
+          "beans": [
+            "トライアルセット"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2022-02-24",
+          "beans": [
+            "FLIGHT SET 飲み比べセット 3types",
+            "ETHIOPIA HALOBERITI 浅煎り 100g",
+            "BRAZIL FORQUILHA RIO 深煎り 100g",
+            "KENYA 中深煎り 100g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2022-07-26",
+          "beans": [
+            "DEEP TIME 中煎り 100g",
+            "MILK BREW -DARK BLEND-",
+            "ETHIOPIA GOTITI 浅煎り 100g",
+            "ETHIOPIA TAMIRU TADESSE 浅煎り 100g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2022-10-12",
+          "beans": [
+            "COLOMBIA EL PARAISO LYCHEE 浅煎り 400g",
+            "ETHIOPIA BOLEDU ARICHA 浅煎り 100g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2023-06-27",
+          "beans": [
+            "COLOMBIA MONTEBLANCO 浅煎り 400g"
+          ],
+          "source": "メール",
+          "note": "同じ日に2回注文"
+        },
+        {
+          "date": "2023-06-27",
+          "beans": [
+            "COLOMBIA MONTEBLANCO 浅煎り 400g"
+          ],
+          "source": "メール",
+          "note": "同じ日に2回注文"
+        },
+        {
+          "date": "2024-04-01",
+          "beans": [
+            "ETHIOPIA DANCHE 浅煎り 100g",
+            "ETHIOPIA WORKA SAKARO 浅煎り 100g",
+            "RWANDA VUNGA 中浅煎り 100g",
+            "COLOMBIA BRUSELAS 深煎り 100g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2025-02-22",
+          "beans": [
+            "COLOMBIA PEREIRA apricot punch 100g",
+            "DEEP TIME classic blend 100g",
+            "UGANDA RWENZORI natural 100g"
+          ],
+          "source": "メール"
+        }
+      ],
+      "shopUrl": "https://hifiltersupply.stores.jp/"
+    },
+    {
+      "id": "lightup",
+      "name": "LIGHT UP COFFEE",
+      "prefecture": "東京都",
+      "city": "三鷹市",
+      "lat": 35.679,
+      "lng": 139.566,
+      "url": "https://lightupcoffee.com/",
+      "purchases": [
+        {
+          "date": "2021-01-11",
+          "beans": [
+            "SINGLE ORIGIN TASTING SET"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-01-18",
+          "beans": [
+            "[FLORAL] KAYO - ETHIOPIA 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-01-31",
+          "beans": [
+            "[SWEET] LA LOMA – COLOMBIA 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-05-23",
+          "beans": [
+            "[JUICY] SIMBI - RWANDA 150g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-11-26",
+          "beans": [
+            "ADANE NEGUSE - ETHIOPIA 150g"
+          ],
+          "source": "メール",
+          "note": "BLACK FRIDAY 2021"
+        },
+        {
+          "date": "2023-04-22",
+          "beans": [
+            "【GW限定】季節のコーヒー豆3種セット"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2024-01-06",
+          "beans": [
+            "LA SOLEDAD GEISHA - GUATEMALA 100g×2"
+          ],
+          "source": "メール"
+        }
+      ]
+    },
+    {
+      "id": "coyote",
+      "name": "COYOTE",
+      "prefecture": "京都府",
+      "city": "京都市左京区",
+      "lat": 35.029,
+      "lng": 135.773,
+      "url": "https://coyote-coffee.stores.jp/",
+      "purchases": [
+        {
+          "date": "2022-02-09",
+          "beans": [
+            "Antonio Ticas Pacamara Washed 150g"
+          ],
+          "source": "メール"
+        }
+      ]
+    },
+    {
+      "id": "obscura",
+      "name": "OBSCURA COFFEE ROASTERS",
+      "prefecture": "東京都",
+      "city": "世田谷区",
+      "lat": 35.648,
+      "lng": 139.667,
+      "url": "https://obscura-coffee.com/",
+      "purchases": [
+        {
+          "date": "2023-01-18",
+          "beans": [
+            "【季節限定】冬の珈琲豆 3種セット（200g×3種）",
+            "【深煎り】ウガンダ「ブゴエ」200g"
+          ],
+          "source": "メール"
+        }
+      ],
+      "shopUrl": "https://shop.obscura-coffee.com/"
+    },
+    {
+      "id": "weekenders",
+      "name": "WEEKENDERS COFFEE",
+      "prefecture": "京都府",
+      "city": "京都市中京区",
+      "lat": 35.006,
+      "lng": 135.757,
+      "url": "https://www.weekenderscoffee.com/",
+      "purchases": [
+        {
+          "date": "2022-01-29",
+          "beans": [
+            "RWA/ルワンダ レメラ 200g"
+          ],
+          "source": "メール"
+        }
+      ]
+    },
+    {
+      "id": "dripdrop",
+      "name": "DRIP & DROP COFFEE SUPPLY",
+      "prefecture": "京都府",
+      "city": "京都市上京区",
+      "lat": 35.028,
+      "lng": 135.746,
+      "url": "https://drpdrp.com/",
+      "purchases": [
+        {
+          "date": "2021-02-07",
+          "beans": [
+            "DRP SINGLE ORIGIN Papua New Guinea Colbran 200g"
+          ],
+          "source": "メール"
+        },
+        {
+          "date": "2021-11-10",
+          "beans": [
+            "DRP SINGLE ORIGIN Myanmar repanpin village 200g"
+          ],
+          "source": "メール",
+          "note": "発送通知メールの日付"
+        }
+      ]
+    },
+    {
+      "id": "sakanotochu",
+      "name": "坂ノ途中（海ノ向こうコーヒー）",
+      "prefecture": "京都府",
+      "city": "京都市南区",
+      "lat": 34.974,
+      "lng": 135.744,
+      "url": "https://uminomukou.com/",
+      "purchases": [
+        {
+          "date": "2020-11-12",
+          "beans": [
+            "コーヒー4種飲み比べセット"
+          ],
+          "source": "メール"
+        }
+      ],
+      "shopUrl": "https://www.on-the-slope.com/"
+    },
+    {
+      "id": "kurasu",
+      "name": "Kurasu",
+      "prefecture": "京都府",
+      "city": "京都市上京区",
+      "lat": 35.037,
+      "lng": 135.749,
+      "url": "https://kurasu.kyoto/",
+      "purchases": [
+        {
+          "date": "2023-10-18",
+          "beans": [
+            "100g×3種類のシングルオリジンコーヒーセット"
+          ],
+          "source": "メール"
+        }
+      ],
+      "shopUrl": "https://jp.kurasu.kyoto/"
+    },
+    {
+      "id": "coffeebaka",
+      "name": "【コーヒーばか】の店（カフェ・エッフェ）",
+      "prefecture": "岐阜県",
+      "city": "岐阜市",
+      "lat": 35.366,
+      "lng": 136.735,
+      "url": "https://www.rakuten.co.jp/coffeebaka/",
+      "purchases": [
+        {
+          "date": "2025-03-23",
+          "beans": [
+            "エスプレッソ シアトル・ブレンド 300g"
+          ],
+          "source": "メール",
+          "note": "楽天で購入"
+        }
+      ]
+    },
+    {
+      "id": "fcoffee",
+      "name": "F Coffee Roasters",
+      "area": "online",
+      "prefecture": "",
+      "city": "",
+      "lat": null,
+      "lng": null,
+      "url": "https://fcoffee.base.shop/",
+      "purchases": [
+        {
+          "date": "2024-02-04",
+          "beans": [
+            "Panama Bernardina Lot. 23 Catuai Extended 90g"
+          ],
+          "source": "メール"
+        }
+      ],
+      "memo": "焙煎所の所在地が公式サイト・特商法表記から確認できないため、地図には置かずオンラインに分類しています。"
+    },
+    {
+      "id": "decafandco",
+      "name": "Decaf & Co.",
+      "prefecture": "東京都",
+      "city": "世田谷区",
+      "lat": 35.646,
+      "lng": 139.653,
+      "url": "https://note.com/decaf_and_co",
+      "purchases": [
+        {
+          "date": "2021-03-04",
+          "beans": [
+            "デカフェ ギフトセット（60g×3種・豆のまま）"
+          ],
+          "source": "メール"
+        }
+      ],
+      "memo": "運営はストーリーライン株式会社。位置は購入当時の公式サイトとプレスリリースにある本社所在地（区まで）。オンラインストア decafcoffee.net は現在つながらないため、公式 note にリンクしています。"
+    },
+    {
+      "id": "workshop",
+      "name": "Workshop Coffee",
+      "area": "overseas",
+      "country": "イギリス",
+      "prefecture": "",
+      "city": "ロンドン",
+      "lat": 51.535,
+      "lng": -0.055,
+      "url": "https://workshopcoffee.com/",
+      "purchases": [
+        {
+          "date": "2021-03-27",
+          "beans": [
+            "La Serrania Decaffeinated Filter 250g",
+            "Huila Decaffeinated Espresso 250g"
+          ],
+          "source": "メール"
+        }
+      ],
+      "memo": "ロンドンの焙煎所から取り寄せた海外通販です。"
+    }
+  ]
+}

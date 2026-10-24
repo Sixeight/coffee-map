@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>通販で買ったコーヒー豆のお店マップ</title>
+<meta name="description" content="オンラインショップでコーヒー豆を買った焙煎所を地図にまとめた記録。店頭やカフェで買った分は含みません。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="通販で買ったコーヒー豆のお店マップ">
+<meta property="og:title" content="通販で買ったコーヒー豆のお店マップ">
+<meta property="og:description" content="オンラインショップでコーヒー豆を買った焙煎所を地図にまとめた記録。店頭やカフェで買った分は含みません。">
+<meta property="og:url" content="https://coffee-map-nishimu.pages.dev/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通販で買ったコーヒー豆のお店マップ">
+<meta name="twitter:description" content="オンラインショップでコーヒー豆を買った焙煎所を地図にまとめた記録。店頭やカフェで買った分は含みません。">
+<meta name="theme-color" content="#f5efe6">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="assets/style.css?v=8">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Online Coffee Journey</p>
+    <h1>通販で買ったコーヒー豆のお店</h1>
+    <p class="lede">一杯ずつ、地図を塗りつぶしていく。オンラインショップで豆を取り寄せた焙煎所の記録です。</p>
+    <p class="scope">通販（オンライン注文）で買った豆だけを載せています。店頭やカフェで買った分は含みません。</p>
+    <dl class="stats" id="stats"></dl>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="map-wrap" aria-label="地図">
+    <div id="map" role="application" aria-label="焙煎所の地図"></div>
+    <button class="map-reset" id="resetView" type="button">全国を表示</button>
+  </section>
+
+  <aside class="panel" aria-label="お店の一覧">
+    <div class="controls">
+      <label class="search">
+        <span class="sr-only">検索</span>
+        <input id="q" type="search" placeholder="店名・豆・都道府県で検索" autocomplete="off">
+      </label>
+      <div class="chips" id="regionChips" role="group" aria-label="地方で絞り込み"></div>
+      <div class="row">
+        <label class="select">
+          <span>都道府県</span>
+          <select id="pref"><option value="">すべて</option></select>
+        </label>
+        <label class="select">
+          <span>並べ替え</span>
+          <select id="sort">
+            <option value="date">注文日が新しい順</option>
+            <option value="north">北から（都道府県順）</option>
+            <option value="count">通販での購入が多い順</option>
+            <option value="name">店名順</option>
+          </select>
+        </label>
+      </div>
+      <p class="result-count" id="resultCount" aria-live="polite"></p>
+    </div>
+    <ol class="list" id="list"></ol>
+  </aside>
+</main>
+
+<section class="prefs" aria-labelledby="prefsTitle">
+  <h2 id="prefsTitle">都道府県の塗りつぶし</h2>
+  <p class="prefs-note">濃い色の県は、そこにある焙煎所から通販で豆を買ったことがある県です。押すとその県で絞り込みます。</p>
+  <div class="pref-grid" id="prefGrid"></div>
+</section>
+
+<footer class="foot">
+  <p>記録しているのはオンラインショップでの購入のみです（店頭・カフェでの購入は含みません）。焙煎所の所在地がわからないお店は「オンライン」、海外のお店は「海外」に分けて載せています（都道府県の数には含めません）。購入ごとの出典は Notion の記録または注文メールです。</p>
+  <p>店の所在地は各店の公式サイト・特定商取引法の表記をもとにしています。ピンは市区町村内のおおよその位置です。</p>
+  <p>地図: <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">国土地理院 淡色地図</a> / <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a></p>
+  <p id="updated"></p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="assets/app.js?v=8"></script>
+</body>
+</html>
