@@ -33,7 +33,7 @@ Gmail の 2 アカウントを読むだけにします（返信や整理はし�
 
 ## 3. 既存のお店に購入を足す
 
-`data/shops.json` で該当するお店の `purchases` に 1 件足します。
+`public/data/shops.json` で該当するお店の `purchases` に 1 件足します。
 
 ```json
 { "date": "2026-11-03", "beans": ["Ethiopia Guji Natural 100g"], "source": "メール" }
@@ -105,18 +105,18 @@ Gmail の 2 アカウントを読むだけにします（返信や整理はし�
 1. JSON の書式を確認します。
 
    ```sh
-   python3 -m json.tool data/shops.json > /dev/null && echo ok
+   python3 -m json.tool public/data/shops.json > /dev/null && echo ok
    ```
 
 2. ローカルで表示を確認します（`python3 -m http.server 8000` → http://localhost:8000/ ）。
-3. `deploy.md` の手順でデプロイします。`assets/` を変えたときは `index.html` の `?v=` の数字を上げます。
+3. `deploy.md` の手順でデプロイします。`public/assets/` を変えたときは `public/index.html` の `?v=` の数字を上げます。
 4. 本番の内容がローカルと同じか確かめます。
 
    ```sh
    for p in / /data/shops.json /assets/app.js /assets/style.css; do
      curl -s -o /dev/null -w "%{http_code} $p\n" "https://coffee-map-nishimu.pages.dev$p"
    done
-   curl -s "https://coffee-map-nishimu.pages.dev/data/shops.json?t=$(date +%s)" | cmp - data/shops.json && echo same
+   curl -s "https://coffee-map-nishimu.pages.dev/data/shops.json?t=$(date +%s)" | cmp - public/data/shops.json && echo same
    ```
 
 5. https://coffee-map-nishimu.pages.dev/ を開き、軒数・購入回数と新しいピンを目で確かめます。

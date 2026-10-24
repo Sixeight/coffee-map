@@ -1,7 +1,0 @@
-{
-  "name": "coffee-map-deploy",
-  "private": true,
-  "type": "module",
-  "description": "Builds the Cloudflare Pages Direct Upload payload for coffee-map",
-  "dependencies": { "blake3-wasm": "2.1.5" }
-}

@@ -10,13 +10,16 @@
 
 ```
 coffee-map/
-├── index.html          ページ本体
-├── data/shops.json     お店と購入記録のデータ（追記するのはここだけ）
-├── assets/style.css    見た目
-├── assets/app.js       地図・一覧・絞り込みの処理
-├── assets/favicon.svg
-├── _headers            Cloudflare Pages 用のキャッシュ設定（任意）
-└── README.md
+├── public/                公開するファイル（Cloudflare Pages の出力ディレクトリ）
+│   ├── index.html         ページ本体
+│   ├── data/shops.json    お店と購入記録のデータ（追記するのはここだけ）
+│   ├── assets/style.css   見た目
+│   ├── assets/app.js      地図・一覧・絞り込みの処理
+│   ├── assets/favicon.svg
+│   └── _headers           キャッシュ設定
+├── README.md
+├── UPDATE.md              メールから追記するときの手順
+└── deploy.md              公開の仕組み
 ```
 
 外部から読み込むもの: Leaflet 1.9.4（unpkg）、Noto Sans JP / Noto Serif JP（Google Fonts）、国土地理院の淡色地図タイル、Esri World Light Gray Canvas（日本が画面に入らないときだけ使う世界地図タイル）。
@@ -33,7 +36,7 @@ python3 -m http.server 8000
 
 ## お店を追加する
 
-`data/shops.json` の `shops` 配列に 1 件足します。並び順は自由です（表示時に並べ替えます）。
+`public/data/shops.json` の `shops` 配列に 1 件足します。並び順は自由です（表示時に並べ替えます）。
 
 ```json
 {
@@ -91,7 +94,7 @@ python3 -m http.server 8000
 
 座標は推測で入れないでください。住所が確認できないお店は `area: "online"` にして、地図に置かずに載せます。
 
-保存したら `python3 -m json.tool data/shops.json > /dev/null` で JSON の書式を確認できます。
+保存したら `python3 -m json.tool public/data/shops.json > /dev/null` で JSON の書式を確認できます。
 
 ## 載せないもの
 
@@ -105,10 +108,10 @@ python3 -m http.server 8000
 
 - フレームワーク: なし
 - ビルドコマンド: 空欄
-- 出力ディレクトリ: リポジトリ内のこのフォルダ（ルートに置くなら `/`）
+- 出力ディレクトリ: `public`
 
-Workers の static assets で配信する場合も、このフォルダを assets のディレクトリに指定すれば動きます。`_headers` は Pages 用の任意ファイルです。
+GitHub 連携で `main` に push すると自動で公開されます。詳しくは `deploy.md` を見てください。
 
-`data/shops.json` を更新したあとブラウザに古い内容が残るときは、再読み込みしてください（`_headers` で 5 分キャッシュにしています）。`assets/` を書き換えたときは、`index.html` の `?v=8` の数字を上げるとすぐ反映されます。
+`public/data/shops.json` を更新したあとブラウザに古い内容が残るときは、再読み込みしてください（`_headers` で 5 分キャッシュにしています）。`public/assets/` を書き換えたときは、`public/index.html` の `?v=8` の数字を上げるとすぐ反映されます。
 
 公開中: https://coffee-map-nishimu.pages.dev/ 。再デプロイの手順は `deploy.md` にあります。
