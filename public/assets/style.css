@@ -15,7 +15,7 @@ a:hover{color:var(--coffee);text-decoration-color:currentColor}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
 /* masthead */
-.masthead{background:var(--coffee) url(masthead.jpg) center 40%/cover;background-blend-mode:multiply;color:#fff;text-align:center;padding:clamp(18px,2.4vw,30px) 12px clamp(16px,2vw,24px)}
+.masthead{background:var(--coffee) url(masthead.jpg?v=1) center 40%/cover;background-blend-mode:multiply;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.45);text-align:center;padding:clamp(18px,2.4vw,30px) 12px clamp(16px,2vw,24px)}
 .masthead-en{margin:0;font:800 clamp(40px,6.5vw,124px)/.92 var(--latin);text-transform:uppercase;letter-spacing:-.015em;text-wrap:balance}
 .masthead h1{margin:clamp(8px,1vw,14px) 0 0;font-size:clamp(15px,1.5vw,20px);font-weight:700;line-height:1.4;letter-spacing:.04em;word-break:keep-all}
 
