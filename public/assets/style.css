@@ -23,7 +23,8 @@ a:hover{color:var(--coffee);text-decoration-color:currentColor}
 .lang-switch button[aria-pressed="true"]:hover{color:#fff}
 .lang-sep{font:700 11px var(--latin);color:var(--ink-3);padding:0 1px}
 html[lang="en"] .masthead h1{font-family:var(--latin);letter-spacing:.02em;word-break:normal}
-html[lang="en"] .badge{font-size:10px;letter-spacing:-.02em}
+html[lang="en"] .item{grid-template-columns:64px 1fr}
+html[lang="en"] .badge{width:64px;font:700 12px var(--latin)}
 
 /* masthead */
 .masthead{background:var(--coffee) url(masthead.jpg?v=2) center 60%/cover;background-blend-mode:multiply;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.45);text-align:center;padding:clamp(18px,2.4vw,30px) 12px clamp(16px,2vw,24px)}
