@@ -11,6 +11,7 @@
 <meta property="og:description" content="オンラインショップでコーヒー豆を買った焙煎所を地図にまとめた記録。店頭やカフェで買った分は含みません。">
 <meta property="og:url" content="https://roaster-map.nishimu.land/">
 <meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通販で買ったコーヒー豆のお店マップ">
 <meta name="twitter:description" content="オンラインショップでコーヒー豆を買った焙煎所を地図にまとめた記録。店頭やカフェで買った分は含みません。">
@@ -20,47 +21,53 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="assets/style.css?v=10">
+<link rel="stylesheet" href="assets/style.css?v=11">
+<script src="assets/i18n.js?v=1"></script>
 </head>
 <body>
 <header class="hero">
+  <nav class="lang-switch" aria-label="言語">
+    <button type="button" data-lang="ja" aria-pressed="true">JA</button>
+    <span class="lang-sep" aria-hidden="true">/</span>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </nav>
   <div class="masthead">
     <p class="masthead-en">Online Coffee Journey</p>
-    <h1>通販で買った<wbr>コーヒー豆のお店</h1>
+    <h1 data-i18n-html="heading">通販で買った<wbr>コーヒー豆のお店</h1>
   </div>
   <div class="hero-inner">
-    <p class="lede">オンラインショップで豆を取り寄せた焙煎所の記録です。</p>
-    <p class="scope">通販（オンライン注文）で買った豆だけを載せています。店頭やカフェで買った分は含みません。</p>
+    <p class="lede" data-i18n="lede">オンラインショップで豆を取り寄せた焙煎所の記録です。</p>
+    <p class="scope" data-i18n="scope">通販（オンライン注文）で買った豆だけを載せています。店頭やカフェで買った分は含みません。</p>
     <dl class="stats" id="stats"></dl>
   </div>
-  <section class="ticker" aria-label="最近の注文"><div class="ticker-track" id="ticker"></div><button class="ticker-toggle" id="tickerToggle" type="button">止める</button></section>
+  <section class="ticker" data-i18n-aria="tickerLabel" aria-label="最近の注文"><div class="ticker-track" id="ticker"></div><button class="ticker-toggle" id="tickerToggle" type="button">止める</button></section>
 </header>
 
 <main class="layout">
-  <section class="map-wrap" aria-label="地図">
-    <div id="map" role="application" aria-label="焙煎所の地図"></div>
-    <button class="map-reset" id="resetView" type="button">全国を表示</button>
+  <section class="map-wrap" data-i18n-aria="mapLabel" aria-label="地図">
+    <div id="map" role="application" data-i18n-aria="mapAria" aria-label="焙煎所の地図"></div>
+    <button class="map-reset" id="resetView" type="button" data-i18n="resetView">全国を表示</button>
   </section>
 
-  <aside class="panel" aria-label="お店の一覧">
+  <aside class="panel" data-i18n-aria="listLabel" aria-label="お店の一覧">
     <div class="controls">
       <label class="search">
-        <span class="sr-only">検索</span>
-        <input id="q" type="search" placeholder="店名・豆・都道府県で検索" autocomplete="off">
+        <span class="sr-only" data-i18n="search">検索</span>
+        <input id="q" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="店名・豆・都道府県で検索" autocomplete="off">
       </label>
-      <div class="chips" id="regionChips" role="group" aria-label="地方で絞り込み"></div>
+      <div class="chips" id="regionChips" role="group" data-i18n-aria="regionFilter" aria-label="地方で絞り込み"></div>
       <div class="row">
         <label class="select">
-          <span>都道府県</span>
+          <span data-i18n="prefecture">都道府県</span>
           <select id="pref"><option value="">すべて</option></select>
         </label>
         <label class="select">
-          <span>並べ替え</span>
+          <span data-i18n="sort">並べ替え</span>
           <select id="sort">
-            <option value="date">注文日が新しい順</option>
-            <option value="north">北から（都道府県順）</option>
-            <option value="count">通販での購入が多い順</option>
-            <option value="name">店名順</option>
+            <option value="date" data-i18n="sortDate">注文日が新しい順</option>
+            <option value="north" data-i18n="sortNorth">北から（都道府県順）</option>
+            <option value="count" data-i18n="sortCount">通販での購入が多い順</option>
+            <option value="name" data-i18n="sortName">店名順</option>
           </select>
         </label>
       </div>
@@ -74,21 +81,21 @@
   <div class="prefs-inner">
     <div class="prefs-head">
       <p class="prefs-en" aria-hidden="true">Prefectures</p>
-      <h2 id="prefsTitle">都道府県の塗りつぶし</h2>
-      <p class="prefs-note">色がついている県は、そこにある焙煎所から通販で豆を買ったことがある県です。押すとその県で絞り込みます。</p>
+      <h2 id="prefsTitle" data-i18n="prefsTitle">都道府県の塗りつぶし</h2>
+      <p class="prefs-note" data-i18n="prefsNote">色がついている県は、そこにある焙煎所から通販で豆を買ったことがある県です。押すとその県で絞り込みます。</p>
     </div>
     <div class="pref-grid" id="prefGrid"></div>
   </div>
 </section>
 
 <footer class="foot">
-  <p>記録しているのはオンラインショップでの購入のみです（店頭・カフェでの購入は含みません）。焙煎所の所在地がわからないお店は「オンライン」、海外のお店は「海外」に分けて載せています（都道府県の数には含めません）。購入ごとの出典は Notion の記録または注文メールです。</p>
-  <p>店の所在地は各店の公式サイト・特定商取引法の表記をもとにしています。ピンは市区町村内のおおよその位置です。</p>
-  <p>地図: <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">国土地理院 淡色地図</a> / <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a></p>
+  <p data-i18n="footer1">記録しているのはオンラインショップでの購入のみです（店頭・カフェでの購入は含みません）。焙煎所の所在地がわからないお店は「オンライン」、海外のお店は「海外」に分けて載せています（都道府県の数には含めません）。購入ごとの出典は Notion の記録または注文メールです。</p>
+  <p data-i18n="footer2">店の所在地は各店の公式サイト・特定商取引法の表記をもとにしています。ピンは市区町村内のおおよその位置です。</p>
+  <p><span data-i18n="mapCredit">地図:</span> <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener" data-i18n="gsiPale">国土地理院 淡色地図</a> / <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a></p>
   <p id="updated"></p>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="assets/app.js?v=10"></script>
+<script src="assets/app.js?v=11"></script>
 </body>
 </html>

@@ -81,6 +81,15 @@ Gmail の 2 アカウントを読むだけにします（返信や整理はし�
 
 項目の一覧は `README.md` の「お店を追加する」にあります。
 
+### 英語フィールド（任意）
+
+英語表示用に、既存の項目名へ `_en` を付けたフィールドを足せます（`name_en`、`note_en`、`memo_en`、`city_en`、`country_en`、`dateNote_en`、`recordedAs_en`、`beans_en` など）。
+
+- 公式サイトや URL にローマ字の店名がはっきり出ているときだけ `name_en` を入れます。
+- 感想や注記も、英語が明らかなときだけ対応する `_en` を足します。
+- 迷ったら省略します。英語モードでは日本語の値をそのまま出します。
+- すでにある日本語の `name` や `note` は書き換えません。
+
 ## 載せないもの
 
 - 器具: フィルター、ドリッパー、スケール、ケトルなど（豆と同じ店で買っていても器具の注文は載せません）
@@ -108,7 +117,7 @@ Gmail の 2 アカウントを読むだけにします（返信や整理はし�
    python3 -m json.tool public/data/shops.json > /dev/null && echo ok
    ```
 
-2. ローカルで表示を確認します（`python3 -m http.server 8000` → http://localhost:8000/ ）。
+2. ローカルで表示を確認します（`cd public && python3 -m http.server 8000` → http://localhost:8000/ 。英語は `/?lang=en`）。
 3. `deploy.md` の手順でデプロイします。`public/assets/` を変えたときは `public/index.html` の `?v=` の数字を上げます。
 4. 本番の内容がローカルと同じか確かめます。
 

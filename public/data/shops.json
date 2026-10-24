@@ -165,6 +165,7 @@
     {
       "id": "hitsuji",
       "name": "ひつじ珈琲",
+      "name_en": "Hitsuji Coffee",
       "prefecture": "栃木県",
       "city": "大田原市",
       "lat": 36.918,
@@ -289,6 +290,7 @@
     {
       "id": "verve",
       "name": "VERVE COFFEE ROASTERS 北鎌倉",
+      "name_en": "VERVE COFFEE ROASTERS Kita-Kamakura",
       "prefecture": "神奈川県",
       "city": "鎌倉市",
       "lat": 35.333,
@@ -330,6 +332,7 @@
     {
       "id": "renshiro",
       "name": "恋史郎コーヒー",
+      "name_en": "Renshiro Coffee",
       "prefecture": "宮崎県",
       "city": "宮崎市",
       "lat": 31.915,
@@ -433,6 +436,7 @@
     {
       "id": "benihi",
       "name": "紅緋（べにひ）",
+      "name_en": "Benihi Coffee",
       "prefecture": "岐阜県",
       "city": "関市",
       "lat": 35.482,
@@ -763,6 +767,7 @@
     {
       "id": "quail",
       "name": "クエイル珈琲",
+      "name_en": "Quail Coffee",
       "prefecture": "徳島県",
       "city": "名西郡石井町",
       "lat": 34.086,
@@ -901,6 +906,7 @@
     {
       "id": "kariomons",
       "name": "カリオモンズコーヒーロースター",
+      "name_en": "Kariomons Coffee Roaster",
       "prefecture": "長崎県",
       "city": "西彼杵郡時津町",
       "lat": 32.833,
@@ -1266,6 +1272,7 @@
     {
       "id": "bloom",
       "name": "ブルームコーヒー",
+      "name_en": "Bloom Coffee",
       "prefecture": "京都府",
       "city": "京都市下京区",
       "lat": 34.991,
@@ -1588,6 +1595,7 @@
     {
       "id": "sakanotochu",
       "name": "坂ノ途中（海ノ向こうコーヒー）",
+      "name_en": "On the Slope (Umi no Mukou Coffee)",
       "prefecture": "京都府",
       "city": "京都市南区",
       "lat": 34.974,

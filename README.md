@@ -15,6 +15,7 @@ coffee-map/
 │   ├── data/shops.json    お店と購入記録のデータ（追記するのはここだけ）
 │   ├── assets/style.css   見た目
 │   ├── assets/app.js      地図・一覧・絞り込みの処理
+│   ├── assets/i18n.js     日英の文言と都道府県名の対応
 │   ├── assets/favicon.svg
 │   ├── assets/masthead.jpg  ヘッダーの帯の写真
 │   └── _headers           キャッシュ設定
@@ -32,10 +33,14 @@ coffee-map/
 `fetch` で JSON を読むので、ファイルをダブルクリックで開くのではなく簡易サーバーを使います。
 
 ```sh
-cd coffee-map
+cd coffee-map/public
 python3 -m http.server 8000
+# または: npx serve public（リポジトリのルートから）
 # http://localhost:8000/ を開く
+# 英語: http://localhost:8000/?lang=en
 ```
+
+言語はヘッダー右上の JA / EN で切り替えます。初期表示は `?lang=en|ja`、なければ前回の選択（localStorage）、それもなければ `navigator.language`（`en*` なら英語、それ以外は日本語）です。日本語が既定です。
 
 ## お店を追加する
 
@@ -45,6 +50,7 @@ python3 -m http.server 8000
 {
   "id": "example",
   "name": "EXAMPLE COFFEE ROASTERS",
+  "name_en": "EXAMPLE COFFEE ROASTERS",
   "prefecture": "福井県",
   "city": "福井市",
   "lat": 36.065,
@@ -67,19 +73,23 @@ python3 -m http.server 8000
 | 項目 | 必須 | 説明 |
 |---|---|---|
 | `id` | ○ | 半角英数字の重複しない識別子。URL の `#id` で、そのお店を開いた状態にできます |
-| `name` | ○ | 店名 |
+| `name` | ○ | 店名（日本語の表記のまま）|
+| `name_en` | | 英語表示用の店名。公式のローマ字表記がサイトや URL からはっきりしているときだけ入れる。不明なら省略（英語モードでは `name` を出す）|
 | `prefecture` | ○ | 所在地の都道府県（「県」「府」「都」まで書く。北海道は「北海道」）|
-| `city` | ○ | 市区町村まで。番地は書かない |
+| `city` | ○ | 市区町村まで。番地は書かない。英語用は `city_en` |
 | `lat`, `lng` | ○ | 緯度経度。小数第 3 位（約 100 m）に丸める |
 | `url` | ○ | 公式サイト |
 | `shopUrl` | | 公式と別にオンラインショップがあれば |
-| `purchases` | ○ | 購入ごとに 1 件。`date` は `YYYY-MM-DD`（不明なら `null`）、`beans` は豆の名前の配列、`note` は感想など |
+| `purchases` | ○ | 購入ごとに 1 件。`date` は `YYYY-MM-DD`（不明なら `null`）、`beans` は豆の名前の配列、`note` は感想など。英語用は同じ名前に `_en` を付けて任意（`note_en`、`dateNote_en`、`beans_en` など）。あるときだけ英語モードで使い、なければ日本語の値を出す |
 | `purchases[].dateNote` | | 日付に添える注記（例:「県の達成日」）|
 | `purchases[].source` | | 出典。`Notion` / `メール` / `Notion+メール` のどれか。ポップアップに「出典」として出ます |
 | `purchases[].orderDate` | | Notion の日付と注文メールの日付が違うときの、メール側の注文日（`YYYY-MM-DD`）|
-| `recordedAs` | | 補足。ポップアップの下に小さく出ます |
+| `recordedAs` | | 補足。ポップアップの下に小さく出ます。英語用は `recordedAs_en` |
+| `memo` | | 任意のメモ。英語用は `memo_en` |
 | `area` | | `online`（所在地不明。地図に置かず `lat`/`lng` は `null`）か `overseas`（海外）。国内のお店には付けない |
-| `country` | | 海外のお店の国名（`area: "overseas"` のとき）|
+| `country` | | 海外のお店の国名（`area: "overseas"` のとき）。英語用は `country_en`、都市は `city_en` |
+
+`name` や `note` などの日本語は書き換えず、英語が明らかな項目だけ `_en` を足します。迷ったら入れません。UI の文言（見出し、フィルタ、凡例など）は `public/assets/i18n.js` にまとめてあります。
 
 通販で買った豆だけを載せます。同じお店でまた買ったときは、その店の `purchases` に 1 件足すだけです。ピンに購入回数が付きます。
 
