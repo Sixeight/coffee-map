@@ -82,8 +82,11 @@
   function renderTicker() {
     const recent = shops.flatMap((s) => s.purchases.filter((p) => p.date).map((p) => ({ s, p })))
       .sort((a, b) => b.p.date.localeCompare(a.p.date)).slice(0, 10);
-    const row = (copy) => recent.map(({ s, p }) =>
-      `<button class="tick" type="button" data-id="${esc(s.id)}"${copy ? ' tabindex="-1"' : ""}><b>${esc(fmtDate(p.date))}</b>${esc(s.name)}<span>${esc(p.beans[0] || "")}</span></button>`).join("");
+    const row = (copy) => recent.map(({ s, p }) => {
+      const el = copy ? "span" : "button";
+      return `<${el} class="tick"${copy ? "" : ' type="button"'} data-id="${esc(s.id)}"><b>${esc(fmtDate(p.date))}</b>${esc(s.name)}<span>${esc(p.beans[0] || "")}</span></${el}>`;
+    }).join("");
+    document.querySelector(".ticker").hidden = !recent.length;
     // 同じ並びを2つ続けて、半分流れたところで先頭に戻すと切れ目なく見える
     $("ticker").innerHTML = `<div class="ticker-row">${row(false)}</div><div class="ticker-row" aria-hidden="true">${row(true)}</div>`;
   }
@@ -279,7 +282,16 @@
     });
     $("ticker").addEventListener("click", (e) => {
       const b = e.target.closest(".tick"); if (!b) return;
+      if (!filtered().some((s) => s.id === b.dataset.id)) {
+        state.q = ""; state.region = ""; state.pref = ""; $("q").value = "";
+        document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.region === "")));
+        renderPrefSelect(); renderPrefGrid(); update();
+      }
       setActive(b.dataset.id, true);
+    });
+    $("tickerToggle").addEventListener("click", (e) => {
+      const paused = document.querySelector(".ticker").classList.toggle("paused");
+      e.currentTarget.textContent = paused ? "流す" : "止める";
     });
     $("resetView").addEventListener("click", () => { map.closePopup(); fitAll(); });
   }
