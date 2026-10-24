@@ -53,6 +53,7 @@
     recentIds = new Set([...shops].filter((s) => s.latest).sort((a, b) => b.latest.localeCompare(a.latest)).slice(0, 3).map((s) => s.id));
     if (data.updated) $("updated").textContent = `データ更新: ${fmtDate(data.updated)}`;
     renderStats();
+    renderTicker();
     initMap();
     renderChips();
     renderPrefSelect();
@@ -76,6 +77,15 @@
     ];
     $("stats").innerHTML = items.map(([k, v, u]) => `<div><dt>${k}</dt><dd>${v}<small>${u}</small></dd></div>`).join("") +
       (latest ? `<div><dt>最近の注文</dt><dd>${esc(latest.name)}<small>${esc(fmtDate(latest.latest))}</small></dd></div>` : "");
+  }
+
+  function renderTicker() {
+    const recent = shops.flatMap((s) => s.purchases.filter((p) => p.date).map((p) => ({ s, p })))
+      .sort((a, b) => b.p.date.localeCompare(a.p.date)).slice(0, 10);
+    const row = (copy) => recent.map(({ s, p }) =>
+      `<button class="tick" type="button" data-id="${esc(s.id)}"${copy ? ' tabindex="-1"' : ""}><b>${esc(fmtDate(p.date))}</b>${esc(s.name)}<span>${esc(p.beans[0] || "")}</span></button>`).join("");
+    // 同じ並びを2つ続けて、半分流れたところで先頭に戻すと切れ目なく見える
+    $("ticker").innerHTML = `<div class="ticker-row">${row(false)}</div><div class="ticker-row" aria-hidden="true">${row(true)}</div>`;
   }
 
   function initMap() {
@@ -266,6 +276,10 @@
       document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.region === "")));
       renderPrefSelect(); renderPrefGrid(); update({ fit: true });
       document.querySelector(".layout").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    $("ticker").addEventListener("click", (e) => {
+      const b = e.target.closest(".tick"); if (!b) return;
+      setActive(b.dataset.id, true);
     });
     $("resetView").addEventListener("click", () => { map.closePopup(); fitAll(); });
   }
