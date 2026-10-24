@@ -56,7 +56,8 @@
       resultAll: "{n}軒すべてを表示中",
       resultSome: "{n}軒を表示中（全{total}軒）",
       langSwitch: "言語",
-      sourceMail: "メール"
+      sourceMail: "メール",
+      ogImageAlt: "Online Coffee Journey 通販で買ったコーヒー豆のお店"
     },
     en: {
       title: "Map of coffee roasters I ordered from online",
@@ -111,7 +112,8 @@
       resultAll: "Showing all {n} shops",
       resultSome: "Showing {n} of {total} shops",
       langSwitch: "Language",
-      sourceMail: "Email"
+      sourceMail: "Email",
+      ogImageAlt: "Online Coffee Journey — roasters I ordered beans from online"
     }
   };
 
@@ -181,6 +183,7 @@
     setMeta("og:site_name", I18N.t("title"), "property");
     setMeta("og:description", I18N.t("description"), "property");
     setMeta("og:locale", lang === "en" ? "en_US" : "ja_JP", "property");
+    setMeta("og:image:alt", I18N.t("ogImageAlt"), "property");
     setMeta("twitter:title", I18N.t("title"));
     setMeta("twitter:description", I18N.t("description"));
   };

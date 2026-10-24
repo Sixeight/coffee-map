@@ -18,6 +18,7 @@ coffee-map/
 │   ├── assets/i18n.js     日英の文言と都道府県名の対応
 │   ├── assets/favicon.svg
 │   ├── assets/masthead.jpg  ヘッダーの帯の写真
+│   ├── assets/og.jpg        SNS で共有したときの画像（1200×630）
 │   └── _headers           キャッシュ設定
 ├── README.md
 ├── UPDATE.md              メールから追記するときの手順
@@ -26,7 +27,7 @@ coffee-map/
 
 外部から読み込むもの: Leaflet 1.9.4（unpkg）、Jost / Noto Sans JP（Google Fonts）、国土地理院の淡色地図タイル、Esri World Light Gray Canvas（日本が画面に入らないときだけ使う世界地図タイル）。
 
-ヘッダーの写真は Wikimedia Commons の [Roasted coffee beans.jpg](https://commons.wikimedia.org/wiki/File:Roasted_coffee_beans.jpg)（MarkSweep 撮影、パブリックドメイン）です。差し替えるときは `public/assets/masthead.jpg` を上書きし、`style.css` の `masthead.jpg?v=` の数字を上げます。
+ヘッダーの写真は棚に並べたドリッパーを撮ったものです。差し替えるときは `public/assets/masthead.jpg` を上書きし、`style.css` の `masthead.jpg?v=` の数字を上げます。
 
 ## ローカルで見る
 
