@@ -99,7 +99,7 @@
       [I18N.t("statBeans"), beans, I18N.t("statBeansUnit")],
     ];
     $("stats").innerHTML = items.map(([k, v, u]) => `<div><dt>${esc(k)}</dt><dd>${v}${u ? `<small>${esc(u)}</small>` : ""}</dd></div>`).join("") +
-      (latest ? `<div class="latest"><dt>${esc(I18N.t("statLatest"))}</dt><dd>${esc(nameOf(latest))}<small>${esc(fmtDate(latest.latest))}</small></dd></div>` : "");
+      (latest ? `<div class="latest"><dt>${esc(I18N.t("statLatest"))}</dt><dd><button class="latest-shop" type="button" data-id="${esc(latest.id)}">${esc(nameOf(latest))}</button><small>${esc(fmtDate(latest.latest))}</small></dd></div>` : "");
   }
 
   function renderTicker() {
@@ -337,14 +337,19 @@
       renderPrefSelect(); renderPrefGrid(); update({ fit: true });
       document.querySelector(".layout").scrollIntoView({ behavior: "smooth", block: "start" });
     });
-    $("ticker").addEventListener("click", (e) => {
-      const b = e.target.closest(".tick"); if (!b) return;
-      if (!filtered().some((s) => s.id === b.dataset.id)) {
+    const showShop = (id) => {
+      if (!filtered().some((s) => s.id === id)) {
         state.q = ""; state.region = ""; state.pref = ""; $("q").value = "";
         document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.region === "")));
         renderPrefSelect(); renderPrefGrid(); update();
       }
-      setActive(b.dataset.id, true);
+      setActive(id, true);
+    };
+    $("ticker").addEventListener("click", (e) => {
+      const b = e.target.closest(".tick"); if (b) showShop(b.dataset.id);
+    });
+    $("stats").addEventListener("click", (e) => {
+      const b = e.target.closest(".latest-shop"); if (b) showShop(b.dataset.id);
     });
     $("tickerToggle").addEventListener("click", (e) => {
       const paused = document.querySelector(".ticker").classList.toggle("paused");
