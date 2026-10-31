@@ -81,6 +81,7 @@
     update();
     const fromHash = decodeURIComponent(location.hash.slice(1));
     if (fromHash && shops.some((s) => s.id === fromHash)) setActive(fromHash, "instant");
+    registerWebmcp();
   }
 
   function renderUpdated() {
@@ -310,6 +311,22 @@
     }
   }
 
+  function showShop(id) {
+    if (!id) return;
+    if (!filtered().some((s) => s.id === id)) {
+      state.q = ""; state.region = ""; state.pref = ""; $("q").value = "";
+      document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.region === "")));
+      renderPrefSelect(); renderPrefGrid(); update();
+    }
+    setActive(id, true);
+  }
+
+  function registerWebmcp() {
+    const api = window.RoasterMapWebMCP;
+    if (!api || typeof api.register !== "function") return;
+    api.register({ getShops: () => shops, focusShop: showShop });
+  }
+
   function bind() {
     let t;
     $("q").addEventListener("input", (e) => { clearTimeout(t); t = setTimeout(() => { state.q = e.target.value; update({ fit: true }); }, 120); });
@@ -337,14 +354,6 @@
       renderPrefSelect(); renderPrefGrid(); update({ fit: true });
       document.querySelector(".layout").scrollIntoView({ behavior: "smooth", block: "start" });
     });
-    const showShop = (id) => {
-      if (!filtered().some((s) => s.id === id)) {
-        state.q = ""; state.region = ""; state.pref = ""; $("q").value = "";
-        document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.region === "")));
-        renderPrefSelect(); renderPrefGrid(); update();
-      }
-      setActive(id, true);
-    };
     $("ticker").addEventListener("click", (e) => {
       const b = e.target.closest(".tick"); if (b) showShop(b.dataset.id);
     });

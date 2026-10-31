@@ -15,11 +15,14 @@ coffee-map/
 │   ├── data/shops.json    お店と購入記録のデータ（追記するのはここだけ）
 │   ├── assets/style.css   見た目
 │   ├── assets/app.js      地図・一覧・絞り込みの処理
+│   ├── assets/webmcp.js   WebMCP ツール（AI エージェント向け）
 │   ├── assets/i18n.js     日英の文言と都道府県名の対応
 │   ├── assets/favicon.svg
 │   ├── assets/masthead.jpg  ヘッダーの帯の写真
 │   ├── assets/og.jpg        SNS で共有したときの画像（1200×630）
 │   └── _headers           キャッシュ設定
+├── test/
+│   └── webmcp.test.js     WebMCP ツール本体のテスト（`node --test`）
 ├── README.md
 ├── UPDATE.md              メールから追記するときの手順
 └── deploy.md              公開の仕組み
@@ -129,3 +132,24 @@ GitHub 連携で `main` に push すると自動で公開されます。詳し�
 `public/data/shops.json` を更新したあとブラウザに古い内容が残るときは、再読み込みしてください（`_headers` で 5 分キャッシュにしています）。`public/assets/` を書き換えたときは、`public/index.html` の `?v=` の数字を上げるとすぐ反映されます。
 
 公開中: https://roaster-map.nishimu.land/ 。再デプロイの手順は `deploy.md` にあります。
+
+## WebMCP（AI エージェント向けツール）
+
+このページは [WebMCP](https://github.com/webmachinelearning/webmcp) の現行 API `document.modelContext.registerTool()` で、通販記録を読むための小さなツールを公開しています。`navigator.modelContext` は Chromium 150 で非推奨になった旧 API なので使いません。`document.modelContext` がないブラウザでは登録をスキップするだけなので、今までどおり使えます。
+
+公開しているツール（読み取り中心。`focus-shop` だけ地図の選択を動かします）:
+
+| ツール | できること |
+|---|---|
+| `search-shops` | 店名・都道府県（日本語・英語・「海外」「オンライン」）でお店を探す |
+| `list-unpurchased-prefectures` | まだ通販で買っていない都道府県の一覧 |
+| `get-shop-purchases` | お店の購入履歴（`shopId` または店名） |
+| `focus-shop` | 地図とそのお店にフォーカスする |
+
+### 試し方
+
+1. Chrome 146 以降で `chrome://flags/#enable-webmcp-testing` を Enabled にする（[Chrome の案内](https://developer.chrome.com/docs/ai/webmcp)）。
+2. このサイトを開く。
+3. ブラウザ内蔵のエージェント、または Chrome の [Model Context Tool Inspector](https://developer.chrome.com/docs/ai/webmcp) からツールを呼ぶ。
+
+開発者向け: 対応ブラウザのコンソールで `await document.modelContext.getTools()` すると登録内容を確認できます。ツール本体のテストはリポジトリルートで `node --test` です。
