@@ -1,6 +1,6 @@
 {
   "title": "通販で買ったコーヒー豆のお店マップ",
-  "updated": "2026-10-24",
+  "updated": "2026-10-31",
   "shops": [
     {
       "id": "baristart",
@@ -328,6 +328,26 @@
           "source": "Notion"
         }
       ]
+    },
+    {
+      "id": "gump",
+      "name": "GUMP COFFEE ROASTERS",
+      "prefecture": "富山県",
+      "city": "富山市",
+      "lat": 36.684,
+      "lng": 137.209,
+      "url": "https://gumpcoffee.com/",
+      "purchases": [
+        {
+          "date": "2026-10-31",
+          "beans": [
+            "Bolivia EdwinHuanca Geisha Natural 200g",
+            "Colombia ElDiviso Castillo Washed 200g"
+          ],
+          "source": "メール"
+        }
+      ],
+      "shopUrl": "https://thecoffeeroasters.stores.jp/"
     },
     {
       "id": "renshiro",
